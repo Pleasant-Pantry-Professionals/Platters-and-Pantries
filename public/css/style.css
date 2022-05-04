@@ -3,6 +3,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    color: rgb(228, 228, 228);
 }
 
 /* =====Fonts and Styles====*/
@@ -13,8 +14,18 @@ line-height: 2em;
 font-size: 3em;
 text-shadow: 2px 2px #2e2e2e;
 }
-
-
+h2{
+    font-weight: 200;
+}
+h5{
+    font-weight: 400;
+}
+p{
+    font-weight: 200;
+}
+li{
+    font-weight: 200;
+}
 /*===========*/
 body {
     background: black;
@@ -35,6 +46,7 @@ nav li {
     margin:5px;
     display: inline-block;
     line-height: 2.5;
+    
 }
  
 nav li {
@@ -54,6 +66,13 @@ main {
     width: 150px;
 }
 
+.salad{
+    width: 350px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
 .chef-image {
     background-image: url("../links/chef2.png");
     height: 750px;
@@ -63,7 +82,15 @@ main {
     position: relative;
     z-index: 1;
 }
+.dish-image {
+    background-image: url("../links/dish.jpg");
+    height: 750px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 
+}
 .btn{
     color:#e84830;
     background-color:#2e2e2e;
@@ -79,9 +106,28 @@ main {
 display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 20%;
-
+  width: 25%;
 }
-.margin-top{
+@media only screen and (max-width: 650px) {
+    .center-page {
+        width: 100%;
+        padding-right: 40px;
+        margin-top: 60px;
+    }
+}
+.center-50pc{
+    display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+.margin-top-25pc{
     margin-top:25%;
 }
+.margin-top-15pc{
+    margin-top:15%;
+}
+.vl {
+    border-left: 4px solid #e84830;
+    padding-left: 10px;
+  }
