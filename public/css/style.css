@@ -1,0 +1,87 @@
+/* ====Universal Style==== */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* =====Fonts and Styles====*/
+
+h1{
+font-family: 'Alfa Slab One', cursive;
+line-height: 2em;
+font-size: 3em;
+text-shadow: 2px 2px #2e2e2e;
+}
+
+
+/*===========*/
+body {
+    background: black;
+}
+
+/*===========*/
+nav{
+height: 80px;
+}
+
+
+nav li {
+    width: 160px;
+    text-align: center;
+    margin:5px;
+    color:#e84830;
+    border-radius: 15px;
+    margin:5px;
+    display: inline-block;
+    line-height: 2.5;
+}
+ 
+nav li {
+    background: black;
+}
+
+/*===========*/
+main {
+    width: 80%;
+    margin: auto;
+}
+
+
+.logo {
+    margin-top:20px;
+    margin-left:50px;
+    width: 150px;
+}
+
+.chef-image {
+    background-image: url("../links/chef2.png");
+    height: 750px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.btn{
+    color:#e84830;
+    background-color:#2e2e2e;
+    border-radius: 15px;
+    margin:5px;
+}
+.btn:hover{
+    background-color: #e84830;
+    color:#2e2e2e;
+}
+
+.center-page{
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+
+}
+.margin-top{
+    margin-top:25%;
+}
