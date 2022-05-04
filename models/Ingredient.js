@@ -23,6 +23,20 @@ Ingredient.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        pantry_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: "pantry",
+                key: "id",
+            },
+        },
+        // shoppinglist_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: "shoppinglist",
+        //         key: "id",
+        //     },
+        // },
     },
     {
         sequelize,

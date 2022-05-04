@@ -18,13 +18,13 @@ Pantry.init(
                 key: "id",
             },
         },
-        ingredient_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "ingredient",
-                key: "id",
-            },
-        },
+        // ingredient_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: "ingredient",
+        //         key: "id",
+        //     },
+        // },
     },
     {
         sequelize,
