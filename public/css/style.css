@@ -3,7 +3,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    color: rgb(228, 228, 228);
 }
 
 /* =====Fonts and Styles====*/
@@ -20,6 +19,10 @@ h2{
 h5{
     font-weight: 400;
 }
+h6{
+    font-weight: 200;
+    font-size: .6em;  
+}
 p{
     font-weight: 200;
 }
@@ -35,7 +38,10 @@ body {
 nav{
 height: 80px;
 }
+.align{
+display: inline-block
 
+}
 
 nav li {
     width: 160px;
@@ -121,6 +127,13 @@ display: block;
       margin-right: auto;
       width: 50%;
     }
+
+    .center-100pc{
+        display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+        }
 .margin-top-25pc{
     margin-top:25%;
 }
@@ -131,3 +144,51 @@ display: block;
     border-left: 4px solid #e84830;
     padding-left: 10px;
   }
+  .card-image{
+      height: 250px;
+      width: 200;
+  }
+  .card-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card.card-action {
+    flex-direction: column;
+    width: 100%;
+}
+.grocery-module{
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    width: 300px;
+    height: auto;
+
+}
+.collection{
+    border-radius: 15px;
+    color: #e84830;
+    border: none;
+}
+.collection-header{
+color: rgb(215, 215, 215);
+}
+.collection.with-header .collection-header{
+    border-bottom: none;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    
+}
+.collection .collection-item{
+    border-bottom: none;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.secondary-content{
+    color:#e84830
+}
+
+.float-right{
+float: right;
+padding-top: 1.5em;
+}
