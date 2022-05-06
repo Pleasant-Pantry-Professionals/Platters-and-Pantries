@@ -4,8 +4,8 @@ const axios = require('axios').default;
 const res = require('express/lib/response');
 const { json } = require('express/lib/response');
 const { Ingredient } = require('../../models');
-const { min } = require('../../models/User');
 const { Op } = require("sequelize");
+
 
 
 const URL = `https://api.edamam.com/api/recipes/v2?type=public&q=chicken%2C%20beef%2C%20fish&app_id=${process.env.id}&app_key=${process.env.api_key}`
@@ -14,27 +14,20 @@ const testURL = `https://api.edamam.com/api/recipes/v2?type=public`
 
 
 
-router.get('/', async (req,res) => {
+router.post('/', async (req,res) => {
+    console.log('API POST', req.body)
     try {
-        // let q = new URLSearchParams();
-        // q.append('q','chicken')
-        // q.append('q','beef')
-        // q.append('q','fish')
-        // q.append('app_id', process.env.id)
-        // q.append('app_key', process.env.api_key)
-        // console.log(q)
-        
         axios.get(testURL, {
             params: {
-                q: 'carrot',
+                q: req.body.dish,
                 app_id: process.env.id,
                 app_key: process.env.api_key
 
             }
         }).then((response) => {
             let r = (response.data)
-            console.log(response)
-            res.send(r)
+            console.log(r)
+            res.json(r)
         })
 
     } catch (err) {
@@ -43,6 +36,8 @@ router.get('/', async (req,res) => {
     }
 })
 
+
+/// ROUTES FOR MODEL TESTING
 router.get('/Pantry', async (req,res) => {
     try{
 
@@ -140,7 +135,7 @@ router.get('/shoppingList', async (req,res) => {
             recipe_amount: {
                 [Op.gt]:0
             },
-            pantry_amount:0,
+            pantry_amount:{[Op.lt]: recipe_amount}
         }
     })
     res.json(table)

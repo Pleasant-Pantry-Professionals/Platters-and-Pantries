@@ -1,35 +1,42 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class Ingredient extends Model { };
+class Ingredient extends Model {}
 
 Ingredient.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    recipe_amount: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    pantry_amount: {
+      type: DataTypes.INTEGER,
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'user',
+            key: 'id',
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        recipe_amount: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        pantry_amount: {
-            type: DataTypes.INTEGER,
-            },
-        },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'ingredient',
-    }
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "ingredient",
+  }
 );
 
 module.exports = Ingredient;
