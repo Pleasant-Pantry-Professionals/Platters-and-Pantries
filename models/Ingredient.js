@@ -11,33 +11,18 @@ Ingredient.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        ingredient_name: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        ingredient_amount: {
+        recipe_amount: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        ingredient_unit: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        pantry_id: {
+        pantry_amount: {
             type: DataTypes.INTEGER,
-            references: {
-                model: "pantry",
-                key: "id",
             },
         },
-        // shoppinglist_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: "shoppinglist",
-        //         key: "id",
-        //     },
-        // },
-    },
     {
         sequelize,
         timestamps: false,
