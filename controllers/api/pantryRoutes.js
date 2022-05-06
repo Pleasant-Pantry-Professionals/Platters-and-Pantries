@@ -4,7 +4,7 @@ const axios = require("axios").default;
 const res = require("express/lib/response");
 const { json } = require("express/lib/response");
 const { Ingredient } = require("../../models");
-const { Op} = require("sequelize");
+const { Op, where} = require("sequelize");
 
 router.get("/", async (req, res) => {
   try {
@@ -28,6 +28,8 @@ router.post("/add", async (req, res) => {
             name:req.body.name,
         },
     })
+
+    console.log(check.length)
    if(check.length===0) {
     const newI = await Ingredient.create({
       name: req.body.name,
@@ -36,11 +38,12 @@ router.post("/add", async (req, res) => {
       user_id:req.body.user_id,
     });
 
-    res.status(200).json(newI);} else {
-        res.status(200)
+    res.status(200).json(newI);} 
+    else {
+        res.status(200).json('Already exists')
     }
   } catch (err) {
-    res.status(500).json("ERROR");
+    res.status(500).json(err);
   }
 });
 
@@ -52,12 +55,15 @@ router.put("/add", async (req, res) => {
           },
       })
      if(check.length>0) {
-      const newI = await Ingredient.create({
+      const newI = await Ingredient.update({
         name: req.body.name,
         recipe_amount: 0,
         pantry_amount: req.body.pantry_amount,
         user_id:req.body.user_id,
-      });
+      }, {where:{
+          name:req.body.name
+      }}
+      );
   
       res.status(200).json(newI);} else {
           res.status(200)

@@ -14,27 +14,20 @@ const testURL = `https://api.edamam.com/api/recipes/v2?type=public`
 
 
 
-router.get('/', async (req,res) => {
+router.post('/', async (req,res) => {
+    console.log('API POST', req.body)
     try {
-        // let q = new URLSearchParams();
-        // q.append('q','chicken')
-        // q.append('q','beef')
-        // q.append('q','fish')
-        // q.append('app_id', process.env.id)
-        // q.append('app_key', process.env.api_key)
-        // console.log(q)
-        
         axios.get(testURL, {
             params: {
-                q: 'carrot',
+                q: req.body.dish,
                 app_id: process.env.id,
                 app_key: process.env.api_key
 
             }
         }).then((response) => {
             let r = (response.data)
-            console.log(response)
-            res.send(r)
+            console.log(r)
+            res.json(r)
         })
 
     } catch (err) {
