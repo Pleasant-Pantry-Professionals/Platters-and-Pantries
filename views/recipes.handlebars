@@ -1,0 +1,13 @@
+    <main>
+      <div class="row">
+        <div class="col l12 s12">
+
+          <h2 class="white-text std-padding-left ">Your Favorited Recipes</h2>
+
+          <div class="card-container flex-container  col s12 flow-text">
+              {{#each recipe as |recipesCard|}}
+              {{> recipesCard}}  
+              {{/each}}
+          </div>
+        </div>
+    </main>
