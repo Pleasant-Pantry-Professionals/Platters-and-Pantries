@@ -42,6 +42,7 @@ body {
 nav {
   height: 80px;
   box-shadow: none;
+
 }
 
 
@@ -49,20 +50,17 @@ nav {
 text-align: right;
 }
 
-/* nav li {
-  width: 160px;
+nav li {
+
   text-align: center;
   margin: 5px;
   color: #e84830;
   border-radius: 15px;
-  margin: 5px;
   display: inline-block;
   line-height: 2.5;
+  margin-right: 40px;
 }
 
-nav li {
-  background: black;
-} */
 
 /*===========*/
 main {
@@ -75,6 +73,13 @@ main {
   margin-left: 50px;
   width: 150px;
 }
+@media only screen and (max-width: 1000px) {
+  .logo{
+      margin-top: 20px;
+      margin-left: 0px;
+
+    }
+  }
 
 .salad {
   width: 350px;
@@ -89,7 +94,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  z-index: 1;
+
 }
 .dish-image {
   background-image: url("../links/steak.jpg");
