@@ -1,8 +1,8 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
+  //need id's for input fields for login
+  const email = document.querySelector('#').value.trim();
+  const password = document.querySelector('#').value.trim();
 
   if (email && password) {
     const response = await fetch('/api/users/login', {
@@ -39,6 +39,7 @@ const signupFormHandler = async (event) => {
     }
   }
 };
+//need submit button for login and signup, change class
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
