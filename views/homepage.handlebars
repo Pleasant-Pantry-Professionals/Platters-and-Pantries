@@ -20,12 +20,12 @@
     </ul> -->
 
   </header>
-    <main>
-      <div class="row">
-        <div class="col l9 s12">
+  <main>
+    <div class="row">
+      <div class="col l9 s12">
 
-          <h1 class="white-text">WHAT'S ON <br>THE MENU TODAY?</h1>
-          <br>
+        <h1 class="white-text">WHAT'S ON <br>THE MENU TODAY?</h1>
+        <br>
 
           <div>
             <form autocomplete="off" >
@@ -54,7 +54,12 @@
               {{/each}}
           </div>
 
+        <h2 class="white-text std-padding-left ">Top Chicken Recipes</h2>
 
+        <div class="card-container flex-container  col s12 flow-text">
+          {{#each recipes}}
+            <div>{{recipe.label }}</div>
+          {{/each}}
         </div>
         <div class="col l3 s12 flow-text ">
         
@@ -69,8 +74,7 @@
             </ul>
          <div>
           <a class="waves-effect waves-light btn center-100pc">VIEW MY PANTRY</a>
-         </div>
         </div>
       </div>
-    </main>
-
+    </div>
+  </main>
