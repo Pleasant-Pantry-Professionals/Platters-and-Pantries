@@ -5,6 +5,8 @@
   <div class="card-content">
     <span class="card-title activator grey-text text-darken-4">{{recipe.label}}<i
         class="material-icons right">more_vert</i></span>
-    <p><a href="#">Ingredients</a></p>
+    <p><a href="/dish">Ingredients</a></p>
+    {{!-- clicking needs to send recipes._links to /dish
+    ?{{recipe._links.self.href}} --}}
   </div>
 </div>

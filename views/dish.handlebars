@@ -1,32 +1,47 @@
- <div class="dish-image">
-    <div class="transparent-grey">
-      <header>
-        <nav class="transparent">
-          <div class="nav-wrapper">
-            <img href="#" class="brand-logo logo" src="./links/Platters and Pantries.png">
-            <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          </div>
-        </nav>
-      </header>
-      <main>
-        <div class="row">
-          <div class="col l6 s12 margin-top-15pc">
-            <div class="vl">
-              <h2>  {{dish.id}}.{{dish.dish_name}}</h2>
-            </div>
-            <p> {{description}}</p>
-            <h5> Ingredients</h5>
-            <ul>
-              <li>{{ingredients}}</li>
-            </ul>
-          </div>
-
-          <div class="col l6 s12 ">
-            <img class="salad" src="./links/salad.png" alt="salad" />
-            <p class="center"> Add Ingredients to shopping list</p>
-            <a class="waves-effect waves-light btn center-50pc">add to list</a>
-          </div>
+<div class="dish-image">
+  <div class="transparent-grey">
+    <header>
+      <nav class="transparent">
+        <div class="nav-wrapper">
+          <img href="#" class="brand-logo logo" src="./links/Platters and Pantries.png">
+          <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li class="waves-effect waves-light"><a href="/login">Login</a></li>
+            <li class="waves-effect waves-light"><a href="/">Home</a></li>
+            <li class="waves-effect waves-light"><a href="/recipes">Recipes</a></li>
+            <li class="waves-effect waves-light"><a href="/about">About</a>
+            </li>
+          </ul>
         </div>
-    </div>
-    </main>
+      </nav>
+
+      <ul class="sidenav black white-text" id="mobile">
+        <li><a class="white-text" href="/login">Login</a></li>
+        <li><a class="white-text" href="/">Home</a></li>
+        <li><a class="white-text" href="/recipes">Recipes</a></li>
+        <li><a class="white-text" href="/about">About</a></li>
+      </ul>
+
+    </header>
+    <main>
+      <div class="row">
+        <div class="col l6 s12 margin-top-15pc">
+          <div class="vl">
+            <h2> {{dish.id}}.{{dish.dish_name}}</h2>
+          </div>
+          <p> {{description}}</p>
+          <h5> Ingredients</h5>
+          <ul>
+            <li>{{ingredients}}</li>
+          </ul>
+        </div>
+
+        <div class="col l6 s12 ">
+          <img class="salad" src="./links/salad.png" alt="salad" />
+          <p class="center"> Add Ingredients to shopping list</p>
+          <a class="waves-effect waves-light btn center-50pc">add to list</a>
+        </div>
+      </div>
   </div>
+  </main>
+</div>
