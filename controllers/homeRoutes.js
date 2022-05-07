@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
+const axios = require("axios");
+
+const URL = `https://api.edamam.com/api/recipes/v2?type=public&q=chicken%2C%20beef%2C%20fish&app_id=${process.env.id}&app_key=${process.env.api_key}`
+
+const testURL = `https://api.edamam.com/api/recipes/v2?type=public`
 
 router.get('/', async (req, res) => {
   try {
@@ -10,8 +15,21 @@ router.get('/', async (req, res) => {
     // });
 
     // const users = userData.map((project) => project.get({ plain: true }));
+    console.log(testURL, req.query.dish, process.env.id, process.env.api_key)
 
-    res.render('homepage', {
+    axios.get(testURL, {
+      params: {
+        q: req.query.dish,
+        app_id: process.env.id,
+        app_key: process.env.api_key
+
+      }
+    }).then((response) => {
+      let r = (response.data)
+      console.log(r)
+      res.render('homepage', {recipes: r.hits
+      })
+
       // users,
       // logged_in: req.session.logged_in,
     });
@@ -38,7 +56,7 @@ router.get('/pantry', (req, res) => {
   // }
 
   res.render('pantry', {
-    
+
   });
 });
 
