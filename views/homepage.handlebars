@@ -1,10 +1,102 @@
-{{#each users as |user| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{{get_emoji}}} {{user.name}}</h2>
-  </div>
-  <div class="col-md-6">
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
-  </div>
-</div>
-{{/each}}
+<div class="chef-image">
+  <header>
+    <nav class="transparent">
+      <div class="nav-wrapper">
+        <img href="#" class="brand-logo logo" src="./links/Platters and Pantries.png">
+        <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <!-- <ul class="right hide-on-med-and-down">
+          <li class="waves-effect waves-light"><a>home</a></li>
+          <li class="waves-effect waves-light"><a>pantry</a></li>
+          <li class="waves-effect waves-light"><a>about</a>
+          </li>
+        </ul> -->
+      </div>
+    </nav>
+
+    <!-- <ul class="sidenav black white-text" id="mobile">
+      <li><a class="white-text">home</a></li>
+      <li><a class="white-text">pantry</a></li>
+      <li><a class="white-text">about</a></li>
+    </ul> -->
+
+  </header>
+    <main>
+      <div class="row">
+        <div class="col l9 s12">
+
+          <h1 class="white-text">WHAT'S ON <br>THE MENU TODAY?</h1>
+          <br>
+
+          <div>
+            <form autocomplete="off" >
+              <div class="input-field searchbar">
+                <input id="searchdish" class="autocomplete validate" required="" aria-required="true" type="text" placeholder="Search">
+                <a id="search-dish"class="waves-effect waves-light btn white-text">Search</a>
+                <span class="helper-text" data-error="Enter a Dish" data-success=""></span>
+                </input>
+              </div>
+              <div>
+                <a class="waves-effect waves-light btn">BURGERS</a>
+                <a class="waves-effect waves-light btn">SALAD</a>
+                <a class="waves-effect waves-light btn">PIZZA</a>
+                <a class="waves-effect waves-light btn">SUSHI</a>
+                <a class="waves-effect waves-light btn">VEGAN</a>
+              </div>
+            </form>
+          </div>
+
+
+          <h2 class="white-text std-padding-left ">Top Chicken Recipes</h2>
+
+          <div class="card-container flex-container  col s12 flow-text">
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="./links/chicken.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Chicken Dish<i
+                    class="material-icons right">more_vert</i></span>
+                <p><a href="#">Ingredients</a></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="./links/chicken.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Chicken Dish<i
+                    class="material-icons right">more_vert</i></span>
+                <p><a href="#">Ingredients</a></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="./links/chicken.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Chicken Dish<i
+                    class="material-icons right">more_vert</i></span>
+                <p><a href="#">Ingredients</a></p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="col l3 s12 flow-text ">
+        
+            <ul class="collection with-header list">
+              <h2>Grocery List</h2>
+              <li class="collection-header"><h6 class="align">Add to <br> Pantry</h6></li>
+              <li class="collection-item"><div>Item<a href="#!" class="secondary-content"><i class="material-icons">add_circle</i></a></div></li>
+              <li class="collection-item"><div>Item<a href="#!" class="secondary-content"><i class="material-icons">add_circle</i></a></div></li>
+              <li class="collection-item"><div>Item<a href="#!" class="secondary-content"><i class="material-icons">add_circle</i></a></div></li>
+              <li class="collection-item"><div>Item<a href="#!" class="secondary-content"><i class="material-icons">add_circle</i></a></div></li>
+            </ul>
+         <div>
+          <a class="waves-effect waves-light btn center-100pc">VIEW MY PANTRY</a>
+         </div>
+        </div>
+      </div>
+    </main>
+
