@@ -1,14 +1,23 @@
 <div class="chef-image">
-  <div class="row ">
-    <div class="col l12 s12 margin-top-25pc">
-      <img href="#" class="brand-logo logo center-25pc" src="./links/Platters and Pantries.png">
-      <div  class="input-field col l12 center-25pc s12 ">
-        <input value="" id="first_name2" type="text" class="validate">
-        <label class="active" for="first_name2">{{user.name}}</label>
-        <input value="" id="first_name2" type="text" class="validate">
-        <label class="active" for="first_name2">{{user.password}}</label>
+  <main>
+    <div class="row ">
+      <div class="col l12 s12 margin-top-25pc">
+        <img href="#" class="brand-logo logo center-25pc" src="./links/Platters and Pantries.png">
+        <div class="center-25pc">
+          <div class="input-field col l12 s12 ">
+            <input value="" id="login-email" type="text" class="validate">
+            <label class="active" for="login-email">Email</label>
+            {{!-- <input value="" id="login-password" type="password" class="validate">
+            <label class="active" for="login-password">Password</label> --}}
+          </div>
+          <div class="input-field col l12 s12 ">
+            <input value="" id="login-password" type="password" class="validate">
+            <label class="active" for="login-password">Password</label>
+          </div>
+        </div>
       </div>
       <a class="waves-effect waves-light btn center-25pc">LOGIN</a>
     </div>
-  </div>
+  </main>
 </div>
+<script src="./js/login.js"></script>
