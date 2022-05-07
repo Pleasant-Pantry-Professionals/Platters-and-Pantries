@@ -1,4 +1,4 @@
-
+//hiting enter clears search for some reason
 
 const submit = document.querySelector('#search-dish')
 

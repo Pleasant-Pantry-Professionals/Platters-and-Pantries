@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     }).then((response) => {
       let r = (response.data)
       console.log(r)
-      res.render('homepage', {recipes: r.hits
+      res.render('homepage', { recipes: r.hits, dish: req.query.dish
       })
 
       // users,
