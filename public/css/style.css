@@ -18,7 +18,7 @@ h2 {
   font-weight: 200;
 }
 h4 {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 h5 {
   font-weight: 400;
@@ -41,12 +41,15 @@ body {
 /*===========*/
 nav {
   height: 80px;
-}
-.align {
-  display: inline-block;
+  box-shadow: none;
 }
 
-nav li {
+
+.align {
+text-align: right;
+}
+
+/* nav li {
   width: 160px;
   text-align: center;
   margin: 5px;
@@ -59,7 +62,7 @@ nav li {
 
 nav li {
   background: black;
-}
+} */
 
 /*===========*/
 main {
@@ -89,11 +92,11 @@ main {
   z-index: 1;
 }
 .dish-image {
-  background-image: url("../links/dish.jpg");
-  height: 750px;
+  background-image: url("../links/steak.jpg");
+  min-height: 800px;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
 }
 .btn {
@@ -191,14 +194,24 @@ main {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.float-right {
-  float: right;
-  padding-top: 1.5em;
-}
-
-
 .flex-container {
     display: flex;
     flex-wrap: wrap;
   }
+.transparent-grey{
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 800px;
+}
 
+.list{
+  margin-top: 200px;
+}
+
+.valign-wrapper {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
