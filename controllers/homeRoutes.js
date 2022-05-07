@@ -27,7 +27,8 @@ router.get('/', async (req, res) => {
     }).then((response) => {
       let r = (response.data)
       console.log(r)
-      res.render('homepage', { recipes: r.hits, dish: req.query.dish
+      res.render('homepage', {
+        recipes: r.hits, dish: req.query.dish
       })
 
       // users,
@@ -49,15 +50,27 @@ router.get('/login', (req, res) => {
   });
 });
 
-router.get('/pantry', (req, res) => {
-  // if (req.session.logged_in) {
-  //   res.redirect('/');
-  //   return;
-  // }
+router.get('/dish', (req, res) => {
+  try {
+    // console.log(testURL, req.query.dish, process.env.id, process.env.api_key)
 
-  res.render('pantry', {
+    axios.get(testURL, {
+      params: {
+        q: req.query.dish,
+        app_id: process.env.id,
+        app_key: process.env.api_key
 
-  });
+      }
+    }).then((response) => {
+      let r = (response.data)
+      console.log(r)
+      res.render('dish', {
+        recipes: r.hits, dish: req.query.dish
+      });
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  };
 });
 
 module.exports = router;
