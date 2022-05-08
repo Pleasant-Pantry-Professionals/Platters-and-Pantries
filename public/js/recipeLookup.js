@@ -24,3 +24,20 @@ submit.addEventListener("click", async function (event) {
   //   });
   // });
 });
+
+const ingredientsBtns = document.querySelectorAll('.ingredient_btn')
+
+const ingredientHandler = async (event) => {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  recipeID = event.target.id;
+
+  console.log('click');
+  window.location = '/dish/?recipeID='+recipeID;
+  //relocation not running properly, throughs error, think though process good.
+  
+};
+
+ingredientsBtns.forEach(ingredientsBtn => {
+  ingredientsBtn.addEventListener('click', ingredientHandler);
+});

@@ -27,6 +27,8 @@ router.get('/', async (req, res) => {
     }).then((response) => {
       let r = (response.data)
       console.log(r)
+      console.log('------------------------------------');
+      console.log(req.query.dish);
       res.render('homepage', {
         recipes: r.hits, dish: req.query.dish
       })
@@ -54,18 +56,14 @@ router.get('/dish', (req, res) => {
   try {
     // console.log(testURL, req.query.dish, process.env.id, process.env.api_key)
 
-    axios.get(testURL, {
-      params: {
-        q: req.query.dish,
-        app_id: process.env.id,
-        app_key: process.env.api_key
+    axios.get(req.query.recipeID, {
 
-      }
     }).then((response) => {
       let r = (response.data)
       console.log(r)
+      console.log(req.query.recipeID);
       res.render('dish', {
-        recipes: r.hits, dish: req.query.dish
+        recipes: r, recipeID: req.query.recipeID
       });
     });
   } catch (err) {
