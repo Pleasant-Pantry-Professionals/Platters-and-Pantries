@@ -3,7 +3,7 @@
     <header>
       <nav class="transparent">
         <div class="nav-wrapper">
-          <img href="#" class="brand-logo logo" src="./links/Platters and Pantries.png">
+          <img href="#" class="brand-logo logo" src="/links/Platters and Pantries.png">
           <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li class="waves-effect waves-light"><a href="/login">Login</a></li>
@@ -32,14 +32,14 @@
           {{!-- <p> {{r.}}</p> --}}
           <h5> Ingredients</h5>
           <ul>
-            {{#each recipes.ingredients as |ingredientItem|}}
+            {{#each recipes.recipe.ingredients as |ingredientItem|}}
             {{> ingredientItem}}
             {{/each}}
           </ul>
         </div>
 
         <div class="col l6 s12 ">
-          <img class="salad" src="./links/salad.png" alt="salad" />
+          <img class="salad" src={{recipes.recipe.image}} alt="salad" />
           <p class="center"> Add Ingredients to shopping list</p>
           <a class="waves-effect waves-light btn center-50pc">add to list</a>
         </div>

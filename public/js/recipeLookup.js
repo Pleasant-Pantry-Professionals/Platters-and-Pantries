@@ -50,3 +50,16 @@ const ingredientHandler = async (event) => {
 ingredientsBtns.forEach(ingredientsBtn => {
   ingredientsBtn.addEventListener('click', ingredientHandler);
 });
+
+const oneSearchBtns = document.querySelectorAll('.oneSearch');
+const oneSearchHandler = async (event) => {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  dish = event.target.id;
+  console.log('DISH', dish);
+  window.location = "/?dish=" + dish;
+};
+
+oneSearchBtns.forEach(oneSearchBtn => {
+  oneSearchBtn.addEventListener('click', oneSearchHandler);
+});

@@ -52,15 +52,22 @@ router.get('/login', (req, res) => {
   });
 });
 
-router.get('/dish', (req, res) => {
+router.get('/dish/', async (req, res) => {
   try {
     // console.log(testURL, req.query.dish, process.env.id, process.env.api_key)
+    console.log('------------------------------');
+    console.log(req.query.recipeID);
+    axios.get(req.query.recipeID+'&app_id='+process.env.id+'&app_key='+process.env.api_key, {
+      // params: {
+      //   q: req.query.dish,
+      //   app_id: process.env.id,
+      //   app_key: process.env.api_key
 
-    axios.get(req.query.recipeID, {
-
+      // }
     }).then((response) => {
       let r = (response.data)
-      console.log(r)
+      // console.log(r.recipe);
+      console.log(r.recipe.ingredients)
       console.log(req.query.recipeID);
       res.render('dish', {
         recipes: r, recipeID: req.query.recipeID
