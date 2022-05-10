@@ -1,29 +1,30 @@
 //hiting enter clears search for some reason
 
-const submit = document.querySelector('#search-dish')
-
-submit.addEventListener("click", async function (event) {
+const submit = document.querySelector('#search-dish');
+const submitHandler = async (event) => {
   event.preventDefault();
   const dish = document.querySelector('#searchdish').value;
-
   console.log('DISH', dish);
   window.location = "/?dish=" + dish;
-  // const response = await fetch('/api/recipe/', {
-  //   method: 'POST',
-  //   body: JSON.stringify({ dish }),
-  //   headers: { 'Content-Type': 'application/json', },
-  // });
-  // const data = await response.json();
-  // console.log(data);
-  // //outputs actual ingredients now
-  // data.hits.forEach(function (element) {
-  //   console.log(element.recipe.ingredients);
-  //   const ingredientsArray = element.recipe.ingredients;
-  //   ingredientsArray.forEach(function (ingredient) {
-  //     console.log(ingredient.food, ingredient.quantity, ingredient.measure);
-  //   });
-  // });
-});
+};
+submit.addEventListener("click", submitHandler);
+
+// const response = await fetch('/api/recipe/', {
+//   method: 'POST',
+//   body: JSON.stringify({ dish }),
+//   headers: { 'Content-Type': 'application/json', },
+// });
+// const data = await response.json();
+// console.log(data);
+// //outputs actual ingredients now
+// data.hits.forEach(function (element) {
+//   console.log(element.recipe.ingredients);
+//   const ingredientsArray = element.recipe.ingredients;
+//   ingredientsArray.forEach(function (ingredient) {
+//     console.log(ingredient.food, ingredient.quantity, ingredient.measure);
+//   });
+// });
+
 
 const ingredientsBtns = document.querySelectorAll('.ingredient_btn')
 
@@ -33,9 +34,7 @@ const ingredientHandler = async (event) => {
   recipeID = event.target.id;
 
   console.log('click');
-  window.location = '/dish/?recipeID='+recipeID;
-  //relocation not running properly, throughs error, think though process good.
-  
+  window.location = '/dish/?recipeID=' + recipeID;
 };
 
 ingredientsBtns.forEach(ingredientsBtn => {
@@ -54,3 +53,11 @@ const oneSearchHandler = async (event) => {
 oneSearchBtns.forEach(oneSearchBtn => {
   oneSearchBtn.addEventListener('click', oneSearchHandler);
 });
+
+const addIngredientBtn = document.querySelector('#addIngredientBtn');
+const addIngredientHandler = async (event) => {
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  console.log('click');
+};
+addIngredientBtn.addEventListener('click', addIngredientHandler);
