@@ -6,6 +6,7 @@ submit.addEventListener("click", async function (event) {
   event.preventDefault();
   const dish = document.querySelector('#searchdish').value;
 
+
   console.log('DISH', dish);
   window.location = "/?dish=" + dish;
   // const response = await fetch('/api/recipe/', {
@@ -24,7 +25,15 @@ submit.addEventListener("click", async function (event) {
   //   });
   // });
 });
-
+// submit.addEventListener("keypress", function(event) {
+//   event.preventDefault();
+//   console.log("submit")
+//   if (event.key === "Enter") {
+//     const dish = document.querySelector('#searchdish').value;
+//     console.log('DISH', dish);
+//     window.location = "/?dish=" + dish;
+//   }
+// });
 const ingredientsBtns = document.querySelectorAll('.ingredient_btn')
 
 const ingredientHandler = async (event) => {
