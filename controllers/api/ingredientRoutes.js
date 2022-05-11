@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Ingredient } = require('../../models');
 
+
 //create ingredient
 router.post('/', async (req, res) => {
     try {
