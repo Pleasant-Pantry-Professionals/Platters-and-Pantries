@@ -1,13 +1,25 @@
 //hiting enter clears search for some reason
 
-const submit = document.querySelector('#search-dish');
+const submitClick = document.querySelector('#search-dish');
+const submitKey = document.querySelector('#searchdish');
+
+
 const submitHandler = async (event) => {
   event.preventDefault();
   const dish = document.querySelector('#searchdish').value;
   console.log('DISH', dish);
   window.location = "/?dish=" + dish;
 };
-submit.addEventListener("click", submitHandler);
+
+
+submitClick.addEventListener("click", submitHandler);
+
+submitKey.addEventListener("keypress", function(event) {
+  
+  if (event.key === 'Enter') {
+    submitHandler(event)
+  }
+})
 
 // const response = await fetch('/api/recipe/', {
 //   method: 'POST',
@@ -54,10 +66,3 @@ oneSearchBtns.forEach(oneSearchBtn => {
   oneSearchBtn.addEventListener('click', oneSearchHandler);
 });
 
-const addIngredientBtn = document.querySelector('#addIngredientBtn');
-const addIngredientHandler = async (event) => {
-  event.preventDefault();
-  event.stopImmediatePropagation();
-  console.log('click');
-};
-addIngredientBtn.addEventListener('click', addIngredientHandler);
