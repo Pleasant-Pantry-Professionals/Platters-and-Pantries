@@ -220,3 +220,7 @@ main {
 	-ms-flex-align: center;
 	align-items: center;
 }
+
+#displayNone{
+  display: none;
+}

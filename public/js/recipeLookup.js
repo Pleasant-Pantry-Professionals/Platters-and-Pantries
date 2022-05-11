@@ -63,3 +63,21 @@ const oneSearchHandler = async (event) => {
 oneSearchBtns.forEach(oneSearchBtn => {
   oneSearchBtn.addEventListener('click', oneSearchHandler);
 });
+
+
+// responsive nav bar
+$(document).ready(function(){
+  $('.sidenav').sidenav();
+});
+
+// toggle between grocery list and pantry
+
+function showPantry() {
+  var show = document.getElementById("showPantry");
+  if (show.style.display === "block") {
+    show.style.display = "none";
+  } else {
+    show.style.display = "block";
+  }
+}
+
