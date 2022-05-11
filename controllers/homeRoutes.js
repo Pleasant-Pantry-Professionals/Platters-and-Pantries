@@ -30,6 +30,10 @@ router.get('/', async (req, res) => {
       console.log('------------------------------------');
       console.log(req.query.dish);
       const shoppingListData = await Ingredient.findAll({
+        where: {
+          recipe_amount: 1,
+          pantry_amount: 0,
+        },
       });
   
       const shoppingListItems = shoppingListData.map((shoppingListItem) =>

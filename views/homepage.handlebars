@@ -52,24 +52,22 @@
 
         <div id="first_div" class="card-container flex-container  col s12 flow-text">
           <ul class="collection with-header list">
-            <h2>Shopping List</h2>
-            <li class="collection-item">
-              {{#each recipes as |recipesCard|}}
-              {{> recipesCard}}
-              {{/each}}
-            </li>
-          </ul>
-          <div>
-            <a class="waves-effect waves-light btn center-100pc">VIEW GROCERY LIST</a>
-          </div>
+            {{#each recipes as |recipesCard|}}
+            {{> recipesCard}}
+            {{/each}}
+        </div>
+        <h2>Shopping List</h2>
+
+        {{#each shoppingListItems as |shoppingListItem|}}
+        {{> shoppingListItem}}
+        {{/each}}
+
+        </ul>
+        <div>
+          <a class="waves-effect waves-light btn center-100pc">VIEW GROCERY LIST</a>
         </div>
 
-
         <div id="second_div" class="col l3 s12">
-          {{#each shoppingListItems as |shoppingListItem|}}
-          {{> shoppingListItem}}
-          {{/each}}
-
           {{#each shoppingList as |pantrylist|}}
           {{> pantrylist}}
           {{/each}}
