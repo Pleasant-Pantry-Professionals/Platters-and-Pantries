@@ -4,7 +4,7 @@ const axios = require("axios").default;
 const res = require("express/lib/response");
 const { json } = require("express/lib/response");
 const { Ingredient } = require("../../models");
-const { Op, where} = require("sequelize");
+const { Op, where } = require("sequelize");
 
 router.get("/", async (req, res) => {
   try {
@@ -23,55 +23,72 @@ router.get("/", async (req, res) => {
 });
 router.post("/add", async (req, res) => {
   try {
-    const check = await Ingredient.findAll({
-        where: {
-            name:req.body.name,
-        },
+
+    axios.get(req.body.recipeUrl, {
+
+    }).then(async (response) => {
+      let ingredientArray = (response.data.recipe.ingredients)
+      console.log(ingredientArray)
+      // res.json(r)
+      ingredientArray.forEach(async (ingredientItem) => {
+        const check = await Ingredient.findAll({
+          where: {
+            name: ingredientItem.food,
+          },
+        })
+        console.log(check.length)
+        if (check.length === 0) {
+          const newI = await Ingredient.create({
+            name: ingredientItem.food,
+            measure: ingredientItem.measure,
+            quantity: ingredientItem.quantity,
+            recipe_amount: 1,
+            pantry_amount: 0,
+            // user_id: req.body.user_id,
+          })  
+          res.status(200).json(newI);
+        };
+      });
     })
 
-    console.log(check.length)
-   if(check.length===0) {
-    const newI = await Ingredient.create({
-      name: req.body.name,
-      recipe_amount: 0,
-      pantry_amount: req.body.pantry_amount,
-      user_id:req.body.user_id,
-    });
 
-    res.status(200).json(newI);} 
-    else {
-        res.status(200).json('Already exists')
-    }
+
+    // else {
+    //   res.status(200).json('Already exists')
+    // }
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.put("/add", async (req, res) => {
-    try {
-      const check = await Ingredient.findAll({
-          where: {
-              name:req.body.name,
-          },
-      })
-     if(check.length>0) {
+  try {
+    const check = await Ingredient.findAll({
+      where: {
+        name: req.body.name,
+      },
+    })
+    if (check.length > 0) {
       const newI = await Ingredient.update({
         name: req.body.name,
         recipe_amount: 0,
         pantry_amount: req.body.pantry_amount,
-        user_id:req.body.user_id,
-      }, {where:{
-          name:req.body.name
-      }}
-      );
-  
-      res.status(200).json(newI);} else {
-          res.status(200)
+        user_id: req.body.user_id,
+      }, {
+        where: {
+          name: req.body.name
+        }
       }
-    } catch (err) {
-      res.status(500).json("ERROR");
+      );
+
+      res.status(200).json(newI);
+    } else {
+      res.status(200)
     }
-  });
+  } catch (err) {
+    res.status(500).json("ERROR");
+  }
+});
 
 router.put("/remove/:id", async (req, res) => {
   try {
