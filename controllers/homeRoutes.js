@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Ingredient } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require("axios");
 
@@ -24,13 +24,19 @@ router.get('/', async (req, res) => {
         app_key: process.env.api_key
 
       }
-    }).then((response) => {
+    }).then(async (response) => {
       let r = (response.data)
       console.log(r)
       console.log('------------------------------------');
       console.log(req.query.dish);
+      const shoppingListData = await Ingredient.findAll({
+      });
+  
+      const shoppingListItems = shoppingListData.map((shoppingListItem) =>
+        shoppingListItem.get({ plain: true })
+      );
       res.render('homepage', {
-        recipes: r.hits, dish: req.query.dish
+        recipes: r.hits, dish: req.query.dish, shoppingListItems
       })
 
       // users,

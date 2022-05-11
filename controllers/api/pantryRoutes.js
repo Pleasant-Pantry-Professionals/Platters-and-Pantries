@@ -46,10 +46,10 @@ router.post("/add", async (req, res) => {
             pantry_amount: 0,
             // user_id: req.body.user_id,
           })  
-          res.status(200).json(newI);
         };
       });
     })
+    res.status(200).json(newI);
 
 
 
