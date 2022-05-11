@@ -51,28 +51,21 @@
 
         <h2 class="white-text std-padding-left ">Top {{dish}} Recipes</h2>
 
-        <div class="card-container flex-container  col s12 flow-text">
+        <div id="first_div" class="card-container flex-container  col s12 flow-text">
           {{#each recipes as |recipesCard|}}
           {{> recipesCard}}
           {{/each}}
         </div>
 
 
-        <div class="col l3 s12 flow-text ">
-
-          <ul class="collection with-header list">
-            <h2>Grocery List</h2>
-
-            <li class="collection-header">
-              <h6 class="align">Add to <br> Pantry</h6>
-            </li>
+        <div id="second_div" class="col l3 s12">
             {{#each shoppingList as |grocerylist|}}
             {{> grocerylist}}
             {{/each}}
-          </ul>
-          <div>
-            <a class="waves-effect waves-light btn center-100pc">VIEW MY PANTRY</a>
-          </div>
+
+       {{#each shoppingList as |pantrylist|}}
+            {{> pantrylist}}
+            {{/each}}
         </div>
       </div>
   </main>

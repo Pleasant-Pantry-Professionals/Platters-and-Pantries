@@ -42,8 +42,8 @@
       <li><a class="white-text" href="/home">Home</a></li>
       <li><a class="white-text" href="/recipes">Recipes</a></li>
       <li><a class="white-text" href="/about">About</a></li>
+      <!-- <li><a class="white-text" href="/pantry">Pantry</a></li> -->
     </ul>
-
   </header>
     <main>
       <div class="row">
@@ -109,7 +109,7 @@
 
         </div>
         <div class="col l3 s12 flow-text ">
-        
+        <div  id="hideGrocery">
             <ul class="collection with-header list">
               <h2>Grocery List</h2>
               <li class="collection-header"><h6 class="align">Add to <br> Pantry</h6></li>
@@ -119,9 +119,23 @@
               <li class="collection-item"><div>Item<a href="#!" class="secondary-content"><i class="material-icons">add_circle</i></a></div></li>
             </ul>
          <div>
-          <a class="waves-effect waves-light btn center-100pc">VIEW MY PANTRY</a>
+          <button onclick="showPantry()"class="waves-effect waves-light btn center-100pc">VIEW MY PANTRY</button>
          </div>
         </div>
+        <div style="display: none;" id="showPantry" >
+         <ul class="collection with-header list">
+           <h2>Pantry List</h2>
+           <li class="collection-item"><div>Item<a href="#!" class="secondary-content"><i class="material-icons">add_circle</i></a></div></li>
+           <li class="collection-item"><div>Item<a href="#!" class="secondary-content"><i class="material-icons">add_circle</i></a></div></li>
+           <li class="collection-item"><div>Item<a href="#!" class="secondary-content"><i class="material-icons">add_circle</i></a></div></li>
+           <li class="collection-item"><div>Item<a href="#!" class="secondary-content"><i class="material-icons">add_circle</i></a></div></li>
+         </ul>
+         <button class="waves-effect waves-light btn center-100pc">VIEW GROCERY LIST</button>
+        </div>
+       
+        
+
+    </div>
       </div>
     </main>
 
