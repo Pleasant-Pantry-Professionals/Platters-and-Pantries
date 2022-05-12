@@ -17,12 +17,19 @@ h1 {
 h2 {
   font-weight: 200;
 }
+h3{
+  font-size: 1.3em;
+  font-weight: 200;
+  line-height: 1.5;
+}
 h4 {
   font-size: 1em;
+  
 }
 h5 {
   font-size: .7em;
-  font-weight: 100;
+  font-weight: 200;
+  line-height: 1.5;
 }
 h6 {
   font-weight: 200;
@@ -45,7 +52,6 @@ nav {
   box-shadow: none;
 
 }
-
 
 .align {
 text-align: right;
@@ -106,6 +112,25 @@ main {
   position: relative;
 
 }
+.food-image {
+  background-image: url("../links/food.jpg");
+  height: 500px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.food2-image {
+  background-image: url("../links/food2.jpg");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 .pantry-image {
   background-image: url("../links/pantry.png");
   height: 900px;
@@ -232,7 +257,9 @@ main {
   background-color: rgba(0, 0, 0, 0.7);
   height: 800px;
 }
-
+.transparent-white{
+  background-color: rgba(255, 255, 255, 0.9);
+}
 /* .list{
   margin-top: 200px;
 } */
