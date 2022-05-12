@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
         });
       } else {
         res.render('homepage', {
-          recipes: r.hits, dish: req.query.dish, 
+          recipes: r.hits, dish: req.query.dish,
         });
       }
       // users,
@@ -92,6 +92,36 @@ router.get('/dish/', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   };
+});
+
+router.get('/shoppingpage', async (req, res) => {
+  try {
+    if (req.session.logged_in) {
+      const shoppingListData = await Ingredient.findAll({
+        where: {
+          recipe_amount: 1,
+          pantry_amount: 0,
+          user_id: req.session.user_id,
+        },
+      });
+
+      const shoppingListItems = shoppingListData.map((shoppingListItem) =>
+        shoppingListItem.get({ plain: true })
+      );
+      res.render('shoppingpage', {
+        shoppingListItems, logged_in: req.session.logged_in,
+      });
+    } else {
+      res.render('homepage', {
+        recipes: r.hits, dish: req.query.dish,
+      });
+    }
+    // users,
+    // logged_in: req.session.logged_in,
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
