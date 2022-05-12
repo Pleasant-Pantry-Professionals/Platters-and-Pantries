@@ -1,6 +1,6 @@
 <div class="grocery-image">
-    <header>
-        <nav class="transparent">
+  <header>
+    <nav class="transparent">
       <div class="nav-wrapper">
         <img href="#" class="brand-logo logo" src="./links/Platters and Pantries.png">
         <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -8,8 +8,8 @@
           <li class="waves-effect waves-light"><a href="/login">Login</a></li>
           <li class="waves-effect waves-light"><a href="/home">Home</a></li>
           <li class="waves-effect waves-light"><a href="/recipes">Recipes</a></li>
-        <li><a class="white-text" href="/pantry">My Pantry</a></li>
-         <li><a class="white-text" href="/groceryList">Grocery List</a></li>
+          <li><a class="white-text" href="/pantry">My Pantry</a></li>
+          <li><a class="white-text" href="/groceryList">Grocery List</a></li>
           <li class="waves-effect waves-light"><a href="/about">About</a>
           </li>
         </ul>
@@ -25,40 +25,42 @@
       <li><a class="white-text" href="/about">About</a></li>
     </ul>
 
-    </header>
-    <main>
+  </header>
+  <main>
+    <div class="row">
+      <form class="col s12">
         <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input id="Add New Item" type="text" class="validate">
-                  <label for="Add New Item">Add New Item</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="Quantity" type="text" class="validate">
-                  <label for="Quantity">Quantity</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="Measurements" type="text" class="validate">
-                    <label for="Measurements">Measurements</label>
-                  </div>
-                  <div>
-                      <button class="waves-effect waves-light btn center-50pc-MB">ADD ITEM</button>
-                      <button class="waves-effect waves-light btn center-50pc-MB">CANCEL</button>
-                  </div>
-              </div>
-            </form>
+          <div class="input-field col s6">
+            <input id="Add New Item" type="text" class="validate">
+            <label for="Add New Item">Add New Item</label>
           </div>
-      <div class="row">
-        <div class="col l12 s12 flow-text ">
-        <div>
-            <ul class="collection with-header list">
-              <h2>Grocery List</h2>
-              <li class="collection-header"><h4>Grocery Items</h4><h6 class="align">Add to <br> Pantry</h6></li>
-              <li class="collection-item"><div>Item</div><div>Unit</div><div>Quantity</div> <a href="#!" class="secondary-content"><i class="material-icons">add_circle</i><i class="material-icons">delete</i></a></div></li>
-            </ul>
-         <div>
+          <div class="input-field col s6">
+            <input id="Quantity" type="text" class="validate">
+            <label for="Quantity">Quantity</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="Measurements" type="text" class="validate">
+            <label for="Measurements">Measurements</label>
+          </div>
+          <div>
+            <button class="waves-effect waves-light btn center-50pc-MB">ADD ITEM</button>
+            <button class="waves-effect waves-light btn center-50pc-MB">CANCEL</button>
+          </div>
         </div>
-      </div>
-    </main>
-
+      </form>
+    </div>
+    <div class="row">
+      <div class="col l12 s12 flow-text ">
+        <div>
+          <ul class="collection with-header list">
+            <h2>Grocery List</h2>
+            <li class="collection-header">
+              <h4>Grocery Items</h4>
+              <h6 class="align">Add to <br> Pantry</h6>
+            </li>
+            {{#each shoppingListItems as |shoppingListItem|}}
+            {{> shoppingListItem}}
+            {{/each}}
+          </ul>
+        </div>
+  </main>

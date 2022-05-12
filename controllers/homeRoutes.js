@@ -94,7 +94,7 @@ router.get('/dish/', async (req, res) => {
   };
 });
 
-router.get('/shoppingpage', async (req, res) => {
+router.get('/groceryList', async (req, res) => {
   try {
     if (req.session.logged_in) {
       const shoppingListData = await Ingredient.findAll({
