@@ -8,6 +8,7 @@
           <li class="waves-effect waves-light"><a href="/login">Login</a></li>
           <li class="waves-effect waves-light"><a href="/">Home</a></li>
           <li class="waves-effect waves-light"><a href="/recipes">Recipes</a></li>
+          <li><a class="white-text logoutBtn">Logout</a></li>
           <li class="waves-effect waves-light"><a href="/about">About</a>
           </li>
         </ul>
@@ -18,10 +19,12 @@
       <li><a class="white-text" href="/login">Login</a></li>
       <li><a class="white-text" href="/">Home</a></li>
       <li><a class="white-text" href="/recipes">Recipes</a></li>
+      <li><a class="white-text logoutBtn">Logout</a></li>
       <li><a class="white-text" href="/about">About</a></li>
     </ul>
 
   </header>
+  {{#if logged_in}}
   <main>
     <div class="row">
       <div class="col l9 s12">
@@ -74,4 +77,10 @@
         </div>
       </div>
   </main>
-  <script src="/js/recipeLookup.js"></script>
+  {{/if}}
+  {{#unless logged_in}}
+  <a class="waves-effect waves-light btn center-100pc" href="/login">Please Log In</a>
+  {{/unless}}
+</div>
+<script src="/js/recipeLookup.js"></script>
+<script src="/js/logout.js"></script>

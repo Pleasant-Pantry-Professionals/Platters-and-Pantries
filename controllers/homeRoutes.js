@@ -29,20 +29,26 @@ router.get('/', async (req, res) => {
       console.log(r)
       console.log('------------------------------------');
       console.log(req.query.dish);
-      const shoppingListData = await Ingredient.findAll({
-        where: {
-          recipe_amount: 1,
-          pantry_amount: 0,
-        },
-      });
-  
-      const shoppingListItems = shoppingListData.map((shoppingListItem) =>
-        shoppingListItem.get({ plain: true })
-      );
-      res.render('homepage', {
-        recipes: r.hits, dish: req.query.dish, shoppingListItems
-      })
+      if (req.session.logged_in) {
+        const shoppingListData = await Ingredient.findAll({
+          where: {
+            recipe_amount: 1,
+            pantry_amount: 0,
+            user_id: req.session.user_id,
+          },
+        });
 
+        const shoppingListItems = shoppingListData.map((shoppingListItem) =>
+          shoppingListItem.get({ plain: true })
+        );
+        res.render('homepage', {
+          recipes: r.hits, dish: req.query.dish, shoppingListItems, logged_in: req.session.logged_in,
+        });
+      } else {
+        res.render('homepage', {
+          recipes: r.hits, dish: req.query.dish, 
+        });
+      }
       // users,
       // logged_in: req.session.logged_in,
     });
@@ -67,7 +73,7 @@ router.get('/dish/', async (req, res) => {
     // console.log(testURL, req.query.dish, process.env.id, process.env.api_key)
     console.log('------------------------------');
     console.log(req.query.recipeID);
-    axios.get(req.query.recipeID+'&app_id='+process.env.id+'&app_key='+process.env.api_key, {
+    axios.get(req.query.recipeID + '&app_id=' + process.env.id + '&app_key=' + process.env.api_key, {
       // params: {
       //   q: req.query.dish,
       //   app_id: process.env.id,

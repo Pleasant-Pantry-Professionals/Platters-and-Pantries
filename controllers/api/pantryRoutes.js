@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
 });
 router.post("/add", async (req, res) => {
   try {
-
+    console.log(req.session.user_id);
     axios.get(req.body.recipeUrl, {
 
     }).then(async (response) => {
@@ -34,6 +34,7 @@ router.post("/add", async (req, res) => {
         const check = await Ingredient.findAll({
           where: {
             name: ingredientItem.food,
+            user_id: req.session.user_id,
           },
         })
         console.log(check.length)
@@ -44,7 +45,7 @@ router.post("/add", async (req, res) => {
             quantity: ingredientItem.quantity,
             recipe_amount: 1,
             pantry_amount: 0,
-            // user_id: req.body.user_id,
+            user_id: req.session.user_id,
           })  
         };
       });
