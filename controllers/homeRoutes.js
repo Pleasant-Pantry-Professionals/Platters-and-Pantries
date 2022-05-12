@@ -99,14 +99,17 @@ router.get('/groceryList', async (req, res) => {
   try {
     if (req.session.logged_in) {
       const shoppingListData = await shoppingList.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+    });
+    const shoppingListItems = shoppingListData.map((shoppingListItem) =>
+      shoppingListItem.get({ plain: true })
+    );
+    res.render('shoppingpage', {
+      shoppingListItems, logged_in: req.session.logged_in,
     });
 
-      const shoppingListItems = shoppingListData.map((shoppingListItem) =>
-        shoppingListItem.get({ plain: true })
-      );
-      res.render('shoppingpage', {
-        shoppingListItems, logged_in: req.session.logged_in,
-      });
     } else {
       res.render('homepage', {
         recipes: r.hits, dish: req.query.dish,

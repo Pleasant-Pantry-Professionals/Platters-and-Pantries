@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
     const ingredientDB = await Ingredient.findAll({
       where: {
         recipe_amount: 1,
+        user_id: req.session.user_id,
       },
     });
 
@@ -34,7 +35,8 @@ router.get("/", async (req, res) => {
           name: item.name,
           measure: item.measure,
           quantity: ingredientNeeded,
-          ingredient_id:item.id
+          ingredient_id:item.id,
+          user_id: req.session.user_id,
         });
       }
     });
