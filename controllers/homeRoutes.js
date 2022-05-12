@@ -124,4 +124,32 @@ router.get('/shoppingpage', async (req, res) => {
   }
 });
 
+router.get('/pantrypage', async (req, res) => {
+  try {
+    if (req.session.logged_in) {
+      const pantryListData = await Ingredient.findAll({
+        where: {
+          pantry_amount: 1,
+          user_id: req.session.user_id,
+        },
+      });
+
+      const pantryListItems = pantryListData.map((pantryListItem) =>
+        pantryListItem.get({ plain: true })
+      );
+      res.render('pantrypage', {
+        pantryListItems, logged_in: req.session.logged_in,
+      });
+    } else {
+      res.render('homepage', {
+        recipes: r.hits, dish: req.query.dish,
+      });
+    }
+    // users,
+    // logged_in: req.session.logged_in,
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
