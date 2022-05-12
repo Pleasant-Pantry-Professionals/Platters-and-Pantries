@@ -31,8 +31,8 @@
       <form class="col s12">
         <div class="row">
           <div class="input-field col s6">
-            <input id="Add New Item" type="text" class="validate">
-            <label for="Add New Item">Add New Item</label>
+            <input id="AddNewItem" type="text" class="validate">
+            <label for="AddNewItem">Add New Item</label>
           </div>
           <div class="input-field col s6">
             <input id="Quantity" type="text" class="validate">
@@ -43,7 +43,7 @@
             <label for="Measurements">Measurements</label>
           </div>
           <div>
-            <button class="waves-effect waves-light btn center-50pc-MB">ADD ITEM</button>
+            <button class="waves-effect waves-light btn center-50pc-MB addItmBtn">ADD ITEM</button>
             <button class="waves-effect waves-light btn center-50pc-MB">CANCEL</button>
           </div>
         </div>
@@ -69,10 +69,11 @@
             {{/each}}
         </div>
 
+
         </ul>
         <div>
         </div>
       </div>
   </main>
-
+  <script src="/js/addIngredient.js"></script>
   <script src="/js/shoppingList.js"></script>
