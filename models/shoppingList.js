@@ -23,6 +23,10 @@ shoppingList.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    ingredient_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
