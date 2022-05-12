@@ -17,11 +17,10 @@ Ingredient.init(
     },
     measure: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     quantity: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      
     },
     recipe_amount: {
       type: DataTypes.INTEGER,
