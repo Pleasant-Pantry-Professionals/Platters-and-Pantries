@@ -6,7 +6,8 @@
         <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li class="waves-effect waves-light"><a href="/login">Login</a></li>
-          <li class="waves-effect waves-light"><a href="/home">Home</a></li>
+          <li><a class="white-text logoutBtn">Logout</a></li>
+          <li class="waves-effect waves-light"><a href="/">Home</a></li>
           <li class="waves-effect waves-light"><a href="/recipes">Recipes</a></li>
           <li><a class="white-text" href="/pantry">My Pantry</a></li>
           <li><a class="white-text" href="/groceryList">Grocery List</a></li>
@@ -18,7 +19,8 @@
 
     <ul class="sidenav black white-text" id="mobile">
       <li><a class="white-text" href="/login">Login</a></li>
-      <li><a class="white-text" href="/home">Home</a></li>
+      <li><a class="white-text logoutBtn">Logout</a></li>
+      <li><a class="white-text" href="/">Home</a></li>
       <li><a class="white-text" href="/recipes">Recipes</a></li>
       <li><a class="white-text" href="/pantry">My Pantry</a></li>
       <li><a class="white-text" href="/groceryList">Grocery List</a></li>
@@ -63,8 +65,10 @@
             <li class="collection-item">
               <div>{{this.name}}</div>
               <div>{{this.quantity}}</div>
-              <div>{{this.measure}}</div> <a href="#!" class="secondary-content"><i
-                  class="material-icons" data-amount={{this.quantity}} data-id = {{this.ingredient_id}} id="add">add_circle</i><i class="material-icons" data-amount={{this.quantity}} data-id = {{this.ingredient_id}} id="delete">delete</i></a>
+              <div>{{this.measure}}</div> <a href="#!" class="secondary-content"><i class="material-icons"
+                  data-amount={{this.quantity}} data-id={{this.ingredient_id}} id="add">add_circle</i><i
+                  class="material-icons" data-amount={{this.quantity}} data-id={{this.ingredient_id}}
+                  id="delete">delete</i></a>
             </li>
             {{/each}}
         </div>
@@ -77,3 +81,4 @@
   </main>
   <script src="/js/addIngredient.js"></script>
   <script src="/js/shoppingList.js"></script>
+  <script src="/js/logout.js"></script>
