@@ -18,15 +18,16 @@ router.get("/", async (req, res) => {
 
     const ingredientDB = await Ingredient.findAll({
       where: {
-        recipe_amount: {
-          [Op.gt]: 0,
-        },
+        recipe_amount: 1,
       },
     });
 
     ingredientDB.forEach(async (item) => {
       console.log(item.name);
-      const ingredientNeeded = item.quantity - item.pantry_amount;
+      let ingredientNeeded = item.quantity - item.pantry_amount;
+      if(item.pantry_amount===0 && item.quantity===0){
+        ingredientNeeded = 1
+      }
 
       if (ingredientNeeded > 0) {
         const newSL = await shoppingList.create({
@@ -44,7 +45,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/delete", async (req,res) => {
+router.post("/add", async (req,res) => {
   try{
     console.log(req.body.itemID)
 
@@ -52,6 +53,26 @@ router.post("/delete", async (req,res) => {
         {
         recipe_amount: 0,
         pantry_amount: Sequelize.literal(`pantry_amount+ ${req.body.itemID[1]}`),
+      },
+        {where: {
+          id: req.body.itemID[0]
+        }}
+        )
+
+
+    res.status(200)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+router.post("/delete", async (req,res) => {
+  try{
+    console.log(req.body.itemID)
+
+      await Ingredient.update(
+        {
+        recipe_amount: 0,
       },
         {where: {
           id: req.body.itemID[0]

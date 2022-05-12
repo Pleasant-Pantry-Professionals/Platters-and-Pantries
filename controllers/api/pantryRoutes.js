@@ -48,6 +48,20 @@ router.post("/add", async (req, res) => {
             user_id: req.session.user_id,
           })  
         };
+        if (check.length > 0) {
+          const newI = await Ingredient.update({
+            name: ingredientItem.food,
+            recipe_amount: 1,
+            pantry_amount: check.pantry_amount,
+            user_id: req.body.user_id,
+          }, {
+            where: {
+              name: ingredientItem.food
+            }
+          }
+          );
+        }
+
       });
     })
     res.status(200).json(newI);
