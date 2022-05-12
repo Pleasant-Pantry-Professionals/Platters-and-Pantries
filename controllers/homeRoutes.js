@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Ingredient } = require('../models');
+const { User, Ingredient, shoppingList } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require("axios");
 
@@ -94,15 +94,11 @@ router.get('/dish/', async (req, res) => {
   };
 });
 
-router.get('/shoppingpage', async (req, res) => {
+router.get('/groceryList', async (req, res) => {
   try {
     if (req.session.logged_in) {
-      const shoppingListData = await Ingredient.findAll({
-        where: {
-          recipe_amount: 1,
-          pantry_amount: 0,
-          user_id: req.session.user_id,
-        },
+      const shoppingListData = await shoppingList.findAll({
+  
       });
 
       const shoppingListItems = shoppingListData.map((shoppingListItem) =>

@@ -13,6 +13,18 @@ const addIngredientHandler = async (event) => {
         body: JSON.stringify({recipeUrl}),
         headers: { 'Content-Type': 'application/json' },
     })
-    console.log(response);
+
+
 };
 addIngredientBtn.addEventListener('click', addIngredientHandler);
+
+// addIngredientBtn.addEventListener('click', async function (event) {
+//     console.log('working')
+//     const recipeUrl = window.location.search.split('ID=')[1];
+//     const updateToTable = await fetch('/api/shoppinglist', {
+//         method: 'POST',
+//         body: JSON.stringify({recipeUrl}),
+//         headers: { 'Content-Type': 'application/json' },
+//     })
+//     console.log(addToTable, updateToTable)
+// })
