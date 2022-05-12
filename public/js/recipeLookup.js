@@ -83,3 +83,14 @@ function showPantry() {
   }
 }
 
+
+
+//store items
+function passCards(){
+  var sendcard = document.getElementById("addtostore").value;
+  localStorage.setItem(sendcard);
+  return false;
+}
+
+document.getElementById("addcard").innerHTML=localStorage.getItem(sendcard);
+
