@@ -1,6 +1,7 @@
 // //require different models
 const User = require("./User");
 const Ingredient = require("./Ingredient");
+const shoppingList = require("./shoppingList")
 
 User.hasMany(Ingredient, {
     foreignKey: 'user_id',
@@ -13,4 +14,5 @@ Ingredient.belongsTo(User, {
 module.exports = {
   User,
   Ingredient,
+  shoppingList
 };

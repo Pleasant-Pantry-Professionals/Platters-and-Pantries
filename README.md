@@ -12,6 +12,7 @@ Your palate and budget will thank you!
 
 **Concept:** An application that lets you stock a personalized pantry, search recipes, and automatically generate a grocery list of missing ingredients.
 
+
 ## User Story
 
 ```
@@ -70,7 +71,34 @@ Your Pleasant Pantry Professionals team:
 
 * Heroku: ???
 
+## Processes
+
+In addition to HTML and Handlebars, our application used the following processes: 
+
+### CSS
+
+* Materialize
+
+### API
+
+* ???
+
+## Credits
+
+* Lea Guerrero -- Presentation: Design, graphics, layout, handlebars, assets, UI
+
+* Abeer Naeem -- Data access: Google API, input capture and verification
+
+* Theo Ward -- Data access: Google API, input capture and verification, troubleshooting
+
+* Will Qualls -- ReadMe, Google Slides presentation, other documentation
+
+## URLs
+
+* [The URL of the deployed application on Heroku]
+
 * GitHub repository: https://github.com/Pleasant-Pantry-Professionals/Platters-and-Pantries
 
 - - -
 © 2022 Doofenshmirtz Evil Inc. brand. Confidential and Proprietary. All Rights Reserved. Myah.
+

@@ -46,8 +46,22 @@ router.post("/add", async (req, res) => {
             recipe_amount: 1,
             pantry_amount: 0,
             user_id: req.session.user_id,
-          })  
+          })
         };
+        if (check.length > 0) {
+          const newI = await Ingredient.update({
+            name: ingredientItem.food,
+            recipe_amount: 1,
+            pantry_amount: check.pantry_amount,
+            user_id: req.body.user_id,
+          }, {
+            where: {
+              name: ingredientItem.food
+            }
+          }
+          );
+        }
+
       });
     })
     res.status(200).json(newI);
@@ -61,7 +75,32 @@ router.post("/add", async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.post("/addIndividual", async (req, res) => {
+  try {
 
+      const check = await Ingredient.findAll({
+        where: {
+          name: req.body.ingredientName,
+          user_id: req.session.user_id,
+        },
+      })
+      console.log(check.length)
+      if (check.length === 0) {
+        const newI = await Ingredient.create({
+          name: req.body.ingredientName,
+          measure: req.body.ingredientMeasurements,
+          quantity: req.body.ingredientQuantity,
+          recipe_amount: 1,
+          pantry_amount: 0,
+          user_id: req.session.user_id,
+        })
+      };
+    
+    res.status(200).json(newI);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 router.put("/add", async (req, res) => {
   try {
     const check = await Ingredient.findAll({
