@@ -58,11 +58,22 @@
               <h4>Grocery Items</h4>
               <h6 class="align">Add to <br> Pantry</h6>
             </li>
-            {{#each shoppingListItems as |shoppingListItem|}}
-            {{> shoppingListItem}}
+
+            {{#each shoppingListItems}}
+            <li class="collection-item">
+              <div>{{this.name}}</div>
+              <div>{{this.quantity}}</div>
+              <div>{{this.measure}}</div> <a href="#!" class="secondary-content"><i
+                  class="material-icons" data-amount={{this.quantity}} data-id = {{this.ingredient_id}} id="add">add_circle</i><i class="material-icons" data-amount={{this.quantity}} data-id = {{this.ingredient_id}} id="delete">delete</i></a>
+            </li>
             {{/each}}
-          </ul>
         </div>
+
+
+        </ul>
+        <div>
+        </div>
+      </div>
   </main>
-</div>
-<script src="/js/addIngredient.js"></script>
+  <script src="/js/addIngredient.js"></script>
+  <script src="/js/shoppingList.js"></script>
