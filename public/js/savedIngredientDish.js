@@ -12,3 +12,9 @@ const ingredientHandler = async (event) => {
 ingredientsBtns.forEach(ingredientsBtn => {
   ingredientsBtn.addEventListener('click', ingredientHandler);
 });
+
+//handles sidenav
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, {});
+});
