@@ -35,8 +35,12 @@ const addShoppingListItem = async (event) => {
       body: JSON.stringify({ ingredientName, ingredientQuantity, ingredientMeasurements }),
       headers: { 'Content-Type': 'application/json' },
     });
+    console.log('click1');
+
   };
-document.location.reload()
+  console.log('click2');
+
+  window.location.replace('/groceryList');
 };
 
 document.querySelector('.addItmBtn').addEventListener('click', addShoppingListItem);

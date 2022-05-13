@@ -10,34 +10,36 @@ const { Op, Sequelize } = require("sequelize");
 router.post("/addList", async (req, res) => {
   try {
     console.log(req.body)
-        const check = await Ingredient.findAll({
-          where:{
-            name:req.body.ingredientName
-          }
-        })
+    const check = await Ingredient.findAll({
+      where: {
+        name: req.body.ingredientName
+      }
+    })
 
-        if(check.length===0) {
-          await Ingredient.create({
-            name:req.body.ingredientName,
-            measure:req.body.ingredientMeasurements,
-            quantity:req.body.ingredientQuantity,
-            recipe_amount:1,
-            pantry_amount:0,
-            user_id: req.session.user_id
-          })
+    if (check.length === 0) {
+      await Ingredient.create({
+        name: req.body.ingredientName,
+        measure: req.body.ingredientMeasurements,
+        quantity: req.body.ingredientQuantity,
+        recipe_amount: 1,
+        pantry_amount: 0,
+        user_id: req.session.user_id
+      })
+    }
+    else {
+      await Ingredient.update(
+        {
+          quantity: Sequelize.literal(`quantity+ ${req.body.ingredientQuantity}`),
+        },
+        {
+          where: {
+            name: req.body.ingredientName
+          }
         }
-        else{
-          await Ingredient.update(
-            {
-            quantity: Sequelize.literal(`quantity+ ${req.body.ingredientQuantity}`),
-          },
-            {where: {
-              name: req.body.ingredientName
-            }}
-            )
+      )
     }
 
-    res.status(200)
+    res.status(200).json('refresh');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,7 +62,7 @@ router.post("/add", async (req, res) => {
     )
 
 
-    res.status(200)
+    res.status(200).json('refresh');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -82,7 +84,7 @@ router.post("/delete", async (req, res) => {
     )
 
 
-    res.status(200)
+    res.status(200).json('refresh');
   } catch (err) {
     res.status(500).json(err);
   }
