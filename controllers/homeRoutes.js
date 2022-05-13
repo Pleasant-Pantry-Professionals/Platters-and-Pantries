@@ -79,14 +79,32 @@ router.get('/groceryList', async (req, res) => {
       const shoppingListData = await Ingredient.findAll({
         where: {
           user_id: req.session.user_id,
+          recipe_amount: 1
         },
       });
-      const shoppingListItems = shoppingListData.map((shoppingListItem) =>
+      let shoppingList = []
+      shoppingListData.forEach(async (item) => {
+        console.log(item.name);
+        let ingredientNeeded = item.quantity - item.pantry_amount;
+        if (item.pantry_amount === 0 && item.quantity === 0) {
+          ingredientNeeded = 1
+        }
+
+
+        if (ingredientNeeded > 0) {
+          shoppingList.push(item)
+        }
+      })
+
+      console.log(shoppingList)
+      const shoppingListItems = shoppingList.map((shoppingListItem) =>
         shoppingListItem.get({ plain: true })
       );
       res.render('shoppingpage', {
         shoppingListItems, logged_in: req.session.logged_in,
-      });
+      })
+
+
 
     } else {
       res.render('homepage', {
@@ -134,13 +152,13 @@ router.get('/recipes', async (req, res) => {
       },
     });
     const recipeListItems = recipeListData.map((recipeListItem) =>
-          recipeListItem.get({ plain: true })
-        );
+      recipeListItem.get({ plain: true })
+    );
     res.render('recipes', {
-     recipeListItems, logged_in: req.session.logged_in,
+      recipeListItems, logged_in: req.session.logged_in,
     });
   } catch (err) {
-  res.status(500).json(err);
-}
+    res.status(500).json(err);
+  }
 });
 module.exports = router;
