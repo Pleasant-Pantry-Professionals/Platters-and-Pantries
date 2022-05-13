@@ -3,7 +3,7 @@ require("dotenv").config();
 const axios = require("axios").default;
 const res = require("express/lib/response");
 const { json } = require("express/lib/response");
-const { Ingredient } = require("../../models");
+const { Ingredient, Recipe } = require("../../models");
 const { Op, where } = require("sequelize");
 
 router.get("/", async (req, res) => {
@@ -63,6 +63,21 @@ router.post("/add", async (req, res) => {
         }
 
       });
+      let recipe = (response.data);
+      const checkRecipe = await Recipe.findAll({
+        where: {
+          recipe_name: recipe.recipe.label,
+          user_id: req.session.user_id,
+        },
+      })
+      if (checkRecipe.length === 0) {
+        const newR = await Recipe.create({
+          recipe_name: recipe.recipe.label,
+          recipe_link: req.body.recipeUrl,
+          // recipe_img: recipe.recipe.image,
+          user_id: req.session.user_id,
+        });
+      }
     })
     res.status(200).json(newI);
 
@@ -176,5 +191,29 @@ router.put("/remove/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+
+router.post("/deleteI", async (req, res) => {
+  try {
+    console.log(req.body.itemID)
+
+    await Ingredient.update(
+      {
+        pantry_amount: 0,
+      },
+      {
+        where: {
+          id: req.body.itemID[0]
+        }
+      }
+    )
+
+
+    res.status(200)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;

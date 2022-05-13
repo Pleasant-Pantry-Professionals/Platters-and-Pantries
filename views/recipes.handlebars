@@ -5,6 +5,7 @@
       <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li class="waves-effect waves-light"><a href="/login">Login</a></li>
+        <li><a class="white-text logoutBtn">Logout</a></li>
         <li class="waves-effect waves-light"><a href="/">Home</a></li>
         <li class="waves-effect waves-light"><a href="/recipes">Recipes</a></li>
         <li><a class="white-text" href="/pantry">My Pantry</a></li>
@@ -17,6 +18,7 @@
 
   <ul class="sidenav black white-text" id="mobile">
     <li><a class="white-text" href="/login">Login</a></li>
+    <li><a class="white-text logoutBtn">Logout</a></li>
     <li><a class="white-text" href="/">Home</a></li>
     <li><a class="white-text" href="/recipes">Recipes</a></li>
     <li><a class="white-text" href="/pantry">My Pantry</a></li>
@@ -32,10 +34,11 @@
       <h2 class="white-text std-padding-left ">Your Favorited Recipes</h2>
 
       <div class="card-container flex-container  col s12 flow-text">
-        {{#each recipe as |recipesCard|}}
-        {{> recipesCard}}
+        {{#each recipeListItems as |recipeListCard|}}
+        {{> recipeListCard}}
         {{/each}}
       </div>
     </div>
 </main>
+<script src="/js/savedIngredientDish.js"></script>
 <script src="/js/logout.js"></script>
