@@ -1,11 +1,4 @@
-const init = async () => {
-  const updateToTable = await fetch("/api/shoppinglist", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
-};
 
-const remove = document.querySelector(".delete");
 
 const add_delete_Function = async (event) => {
   if (event.target.id === "delete") {
@@ -31,5 +24,5 @@ const add_delete_Function = async (event) => {
   }
 };
 
-init();
+
 document.addEventListener("click", add_delete_Function);
