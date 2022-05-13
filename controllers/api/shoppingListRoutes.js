@@ -6,60 +6,58 @@ const { json } = require("express/lib/response");
 const { shoppingList, Ingredient } = require("../../models");
 const { Op, Sequelize } = require("sequelize");
 
-//update existing item to add to list
-// router.get("/", async (req, res) => {
-//   try {
 
-//     const shoppingListDB = await shoppingList.findAll()
-//     shoppingListDB.forEach(async (db) => {
-//       await db.destroy()
-//     })
+router.post("/addList", async (req, res) => {
+  try {
+    console.log(req.body)
+        const check = await Ingredient.findAll({
+          where:{
+            name:req.body.ingredientName
+          }
+        })
 
+        if(check.length===0) {
+          await Ingredient.create({
+            name:req.body.ingredientName,
+            measure:req.body.ingredientMeasurements,
+            quantity:req.body.ingredientQuantity,
+            recipe_amount:1,
+            pantry_amount:0,
+            user_id: req.session.user_id
+          })
+        }
+        else{
+          await Ingredient.update(
+            {
+            quantity: Sequelize.literal(`quantity+ ${req.body.ingredientQuantity}`),
+          },
+            {where: {
+              name: req.body.ingredientName
+            }}
+            )
+    }
 
-//     const ingredientDB = await Ingredient.findAll({
-//       where: {
-//         recipe_amount: 1,
-//         user_id: req.session.user_id,
-//       },
-//     });
+    res.status(200)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
-//     ingredientDB.forEach(async (item) => {
-//       console.log(item.name);
-//       let ingredientNeeded = item.quantity - item.pantry_amount;
-//       if(item.pantry_amount===0 && item.quantity===0){
-//         ingredientNeeded = 1
-//       }
-
-//       if (ingredientNeeded > 0) {
-//         const newSL = await shoppingList.create({
-//           name: item.name,
-//           measure: item.measure,
-//           quantity: ingredientNeeded,
-//           ingredient_id:item.id,
-//           user_id: req.session.user_id,
-//         });
-//       }
-//     });
-
-//     res.status(200);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-router.post("/add", async (req,res) => {
-  try{
+router.post("/add", async (req, res) => {
+  try {
     console.log(req.body.itemID)
 
-      await Ingredient.update(
-        {
+    await Ingredient.update(
+      {
         recipe_amount: 0,
         pantry_amount: Sequelize.literal(`pantry_amount+ ${req.body.itemID[1]}`),
       },
-        {where: {
+      {
+        where: {
           id: req.body.itemID[0]
-        }}
-        )
+        }
+      }
+    )
 
 
     res.status(200)
@@ -68,18 +66,20 @@ router.post("/add", async (req,res) => {
   }
 })
 
-router.post("/delete", async (req,res) => {
-  try{
+router.post("/delete", async (req, res) => {
+  try {
     console.log(req.body.itemID)
 
-      await Ingredient.update(
-        {
+    await Ingredient.update(
+      {
         recipe_amount: 0,
       },
-        {where: {
+      {
+        where: {
           id: req.body.itemID[0]
-        }}
-        )
+        }
+      }
+    )
 
 
     res.status(200)

@@ -177,4 +177,28 @@ router.put("/remove/:id", async (req, res) => {
   }
 });
 
+
+
+router.post("/deleteI", async (req, res) => {
+  try {
+    console.log(req.body.itemID)
+
+    await Ingredient.update(
+      {
+        pantry_amount: 0,
+      },
+      {
+        where: {
+          id: req.body.itemID[0]
+        }
+      }
+    )
+
+
+    res.status(200)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 module.exports = router;
