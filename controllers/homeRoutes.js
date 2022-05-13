@@ -54,6 +54,11 @@ router.get('/login', (req, res) => {
   });
 });
 
+router.get('/about', (req, res) => {
+  res.render('about', {
+  });
+});
+
 router.get('/dish/', async (req, res) => {
   try {
     console.log('------------------------------');

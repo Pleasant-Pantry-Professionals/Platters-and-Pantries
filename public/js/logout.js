@@ -16,3 +16,9 @@ const logoutBtns = document.querySelectorAll('.logoutBtn');
 logoutBtns.forEach(logoutBtn => {
   logoutBtn.addEventListener('click', logout);
 });
+
+//handles sidenav
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, {});
+});
