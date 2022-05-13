@@ -103,6 +103,15 @@ main {
   position: relative;
 
 }
+.logo-image {
+  background-image: url("../links/logo.png");
+  height: 750px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
 .grocery-image {
   background-image: url("../links/grocery.png");
   height: 900px;
@@ -295,4 +304,7 @@ main {
   -webkit-box-shadow: 0px 0px 20px 5px rgb(232, 72, 48,0.8);
   -moz-box-shadow: 0px 0px 20px 10px rgb(232, 72, 48);
   box-shadow: 0px 0px 20px 6px rgba(rgb(232, 72, 48));
+}
+.padding-t120{
+  padding-top: 120px;
 }
