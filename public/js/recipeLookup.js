@@ -68,29 +68,18 @@ oneSearchBtns.forEach(oneSearchBtn => {
 
 
 // responsive nav bar
-$(document).ready(function(){
-  $('.sidenav').sidenav();
-});
+var elem = document.querySelector('.sidenav');
+  var instance = new M.Sidenav(elem);
 
-// toggle between grocery list and pantry
+   // with jquery
 
-// function showPantry() {
-//   var show = document.getElementById("showPantry");
-//   if (show.style.display === "block") {
-//     show.style.display = "none";
-//   } else {
-//     show.style.display = "block";
-//   }
-// }
+  $(document).ready(function(){
+   $('.sidenav').sidenav();
+  });
 
 
 
-//store items
-function passCards(){
-  var sendcard = document.getElementById("addtostore").value;
-  localStorage.setItem(sendcard);
-  return false;
-}
 
-document.getElementById("addcard").innerHTML=localStorage.getItem(sendcard);
+
+
 
