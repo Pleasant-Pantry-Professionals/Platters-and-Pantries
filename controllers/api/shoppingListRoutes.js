@@ -7,45 +7,45 @@ const { shoppingList, Ingredient } = require("../../models");
 const { Op, Sequelize } = require("sequelize");
 
 //update existing item to add to list
-router.get("/", async (req, res) => {
-  try {
+// router.get("/", async (req, res) => {
+//   try {
 
-    const shoppingListDB = await shoppingList.findAll()
-    shoppingListDB.forEach(async (db) => {
-      await db.destroy()
-    })
+//     const shoppingListDB = await shoppingList.findAll()
+//     shoppingListDB.forEach(async (db) => {
+//       await db.destroy()
+//     })
 
 
-    const ingredientDB = await Ingredient.findAll({
-      where: {
-        recipe_amount: 1,
-        user_id: req.session.user_id,
-      },
-    });
+//     const ingredientDB = await Ingredient.findAll({
+//       where: {
+//         recipe_amount: 1,
+//         user_id: req.session.user_id,
+//       },
+//     });
 
-    ingredientDB.forEach(async (item) => {
-      console.log(item.name);
-      let ingredientNeeded = item.quantity - item.pantry_amount;
-      if(item.pantry_amount===0 && item.quantity===0){
-        ingredientNeeded = 1
-      }
+//     ingredientDB.forEach(async (item) => {
+//       console.log(item.name);
+//       let ingredientNeeded = item.quantity - item.pantry_amount;
+//       if(item.pantry_amount===0 && item.quantity===0){
+//         ingredientNeeded = 1
+//       }
 
-      if (ingredientNeeded > 0) {
-        const newSL = await shoppingList.create({
-          name: item.name,
-          measure: item.measure,
-          quantity: ingredientNeeded,
-          ingredient_id:item.id,
-          user_id: req.session.user_id,
-        });
-      }
-    });
+//       if (ingredientNeeded > 0) {
+//         const newSL = await shoppingList.create({
+//           name: item.name,
+//           measure: item.measure,
+//           quantity: ingredientNeeded,
+//           ingredient_id:item.id,
+//           user_id: req.session.user_id,
+//         });
+//       }
+//     });
 
-    res.status(200);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.post("/add", async (req,res) => {
   try{

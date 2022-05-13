@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Ingredient, shoppingList } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require("axios");
-const { Op} = require("sequelize");
+const { Op } = require("sequelize");
 
 const URL = `https://api.edamam.com/api/recipes/v2?type=public&q=chicken%2C%20beef%2C%20fish&app_id=${process.env.id}&app_key=${process.env.api_key}`
 
@@ -98,17 +98,35 @@ router.get('/dish/', async (req, res) => {
 router.get('/groceryList', async (req, res) => {
   try {
     if (req.session.logged_in) {
-      const shoppingListData = await shoppingList.findAll({
+      const shoppingListData = await Ingredient.findAll({
         where: {
           user_id: req.session.user_id,
+          recipe_amount: 1
         },
-    });
-    const shoppingListItems = shoppingListData.map((shoppingListItem) =>
-      shoppingListItem.get({ plain: true })
-    );
-    res.render('shoppingpage', {
-      shoppingListItems, logged_in: req.session.logged_in,
-    });
+      });
+      let shoppingList = []
+      shoppingListData.forEach(async (item) => {
+        console.log(item.name);
+        let ingredientNeeded = item.quantity - item.pantry_amount;
+        if (item.pantry_amount === 0 && item.quantity === 0) {
+          ingredientNeeded = 1
+        }
+
+
+        if (ingredientNeeded > 0) {
+          shoppingList.push(item)
+        }
+      })
+
+      console.log(shoppingList)
+    const shoppingListItems = shoppingList.map((shoppingListItem) =>
+        shoppingListItem.get({ plain: true })
+      );
+      res.render('shoppingpage', {
+        shoppingListItems, logged_in: req.session.logged_in,
+      })
+
+
 
     } else {
       res.render('homepage', {
