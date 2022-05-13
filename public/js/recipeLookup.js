@@ -76,25 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
 //   $('.sidenav').sidenav();
 // });
 
-// toggle between grocery list and pantry
-
-// function showPantry() {
-//   var show = document.getElementById("showPantry");
-//   if (show.style.display === "block") {
-//     show.style.display = "none";
-//   } else {
-//     show.style.display = "block";
-//   }
-// }
 
 
 
-//store items
-function passCards(){
-  var sendcard = document.getElementById("addtostore").value;
-  localStorage.setItem(sendcard);
-  return false;
-}
 
-document.getElementById("addcard").innerHTML=localStorage.getItem(sendcard);
+
 

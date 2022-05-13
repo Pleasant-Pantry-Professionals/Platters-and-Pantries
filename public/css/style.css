@@ -87,7 +87,19 @@ main {
 
     }
   }
-
+  .dish-img {
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media only screen and (max-width: 400px) {
+    .dish-img {
+      width: 250px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }}
 .salad {
   width: 350px;
   display: block;
@@ -151,7 +163,7 @@ main {
 }
 .dish-image {
   background-image: url("../links/steak.jpg");
-  min-height: 800px;
+  min-height: 1000px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -286,7 +298,7 @@ main {
   }
 .transparent-grey{
   background-color: rgba(0, 0, 0, 0.7);
-  height: 800px;
+  height: 1000px;
 }
 .transparent-white{
   background-color: rgba(255, 255, 255, 0.9);
@@ -329,4 +341,8 @@ main {
 }
 .padding-t120{
   padding-top: 120px;
+}
+.padding-tb40{
+  padding-top: 20px;
+  padding-bottom:20px;
 }

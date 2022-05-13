@@ -36,7 +36,7 @@
             <h2> {{recipes.recipe.label}}</h2>
           </div>
           {{!-- <p> {{r.}}</p> --}}
-          <h5> Ingredients</h5>
+          <h3> Ingredients</h3>
           <ul>
             {{#each recipes.recipe.ingredients as |ingredientItem|}}
             {{> ingredientItem}}
@@ -44,10 +44,10 @@
           </ul>
         </div>
 
-        <div class="col l6 s12 ">
-          <img class="salad" src={{recipes.recipe.image}} alt="salad" />
-          <p class="center"> Add Ingredients to shopping list</p>
-          <a id="addIngredientBtn" class="waves-effect waves-light btn center-50pc">add to list</a>
+        <div class="col l6 s12 margin-top-15pc">
+          <img class="dish-img" src={{recipes.recipe.image}} alt="salad" />
+          <p class="center padding-tb40"> Add Ingredients to shopping list and Save recipe for later</p>
+          <a id="addIngredientBtn" class="waves-effect waves-light btn center-50pc">SAVE AND ADD</a>
         </div>
       </div>
     </main>
