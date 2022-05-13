@@ -154,7 +154,7 @@ router.get('/recipes', async (req, res) => {
     const recipeListItems = recipeListData.map((recipeListItem) =>
       recipeListItem.get({ plain: true })
     );
-    res.render('recipes', {
+    res.render('storedrecipes', {
       recipeListItems, logged_in: req.session.logged_in,
     });
   } catch (err) {
