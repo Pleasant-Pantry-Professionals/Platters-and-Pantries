@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Ingredient, shoppingList } = require('../models');
+const { User, Ingredient, shoppingList, Recipe } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require("axios");
 const { Op } = require("sequelize");
@@ -10,12 +10,6 @@ const testURL = `https://api.edamam.com/api/recipes/v2?type=public`
 
 router.get('/', async (req, res) => {
   try {
-    // const userData = await User.findAll({
-    //   attributes: { exclude: ['password'] },
-    //   order: [['name', 'ASC']],
-    // });
-
-    // const users = userData.map((project) => project.get({ plain: true }));
     console.log(testURL, req.query.dish, process.env.id, process.env.api_key)
 
     axios.get(testURL, {
@@ -23,7 +17,6 @@ router.get('/', async (req, res) => {
         q: req.query.dish,
         app_id: process.env.id,
         app_key: process.env.api_key
-
       }
     }).then(async (response) => {
       let r = (response.data)
@@ -50,8 +43,6 @@ router.get('/', async (req, res) => {
           recipes: r.hits, dish: req.query.dish,
         });
       }
-      // users,
-      // logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -59,28 +50,15 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // if (req.session.logged_in) {
-  //   res.redirect('/');
-  //   return;
-  // }
-
   res.render('login', {
-
   });
 });
 
 router.get('/dish/', async (req, res) => {
   try {
-    // console.log(testURL, req.query.dish, process.env.id, process.env.api_key)
     console.log('------------------------------');
     console.log(req.query.recipeID);
     axios.get(req.query.recipeID + '&app_id=' + process.env.id + '&app_key=' + process.env.api_key, {
-      // params: {
-      //   q: req.query.dish,
-      //   app_id: process.env.id,
-      //   app_key: process.env.api_key
-
-      // }
     }).then((response) => {
       let r = (response.data)
       // console.log(r.recipe);
@@ -119,7 +97,7 @@ router.get('/groceryList', async (req, res) => {
       })
 
       console.log(shoppingList)
-    const shoppingListItems = shoppingList.map((shoppingListItem) =>
+      const shoppingListItems = shoppingList.map((shoppingListItem) =>
         shoppingListItem.get({ plain: true })
       );
       res.render('shoppingpage', {
@@ -132,10 +110,7 @@ router.get('/groceryList', async (req, res) => {
       res.render('homepage', {
         recipes: r.hits, dish: req.query.dish,
       });
-    }
-    // users,
-    // logged_in: req.session.logged_in,
-
+    };
   } catch (err) {
     res.status(500).json(err);
   }
@@ -163,10 +138,25 @@ router.get('/pantry', async (req, res) => {
       res.render('homepage', {
         recipes: r.hits, dish: req.query.dish,
       });
-    }
-    // users,
-    // logged_in: req.session.logged_in,
+    };
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
 
+router.get('/recipes', async (req, res) => {
+  try {
+    const recipeListData = await Recipe.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    const recipeListItems = recipeListData.map((recipeListItem) =>
+      recipeListItem.get({ plain: true })
+    );
+    res.render('recipes', {
+      recipeListItems, logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
