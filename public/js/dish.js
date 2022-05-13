@@ -4,6 +4,7 @@ const addIngredientHandler = async (event) => {
     event.preventDefault();
     event.stopImmediatePropagation();
     console.log(window.location.search.split('ID=')[1]);
+    console.log();
     const recipeUrl = window.location.search.split('ID=')[1];
     // axios.get(recipeUrl).then((response) => {
     //     console.log(response);
@@ -13,8 +14,11 @@ const addIngredientHandler = async (event) => {
         body: JSON.stringify({recipeUrl}),
         headers: { 'Content-Type': 'application/json' },
     })
-
-
+    // const recipeSave = await fetch('/api/recipe', {
+    //     method: 'POST',
+    //     body: JSON.stringify({}),
+    //     headers: { 'Content-Type': 'application/json' },
+    // })
 };
 addIngredientBtn.addEventListener('click', addIngredientHandler);
 
