@@ -80,6 +80,32 @@ Your Pleasant Pantry Professionals team:
 
 ## URLs
 
+* Heroku: ???
+
+## Processes
+
+In addition to HTML and Handlebars, our application used the following processes: 
+
+### CSS
+
+* Materialize
+
+### API
+
+* ???
+
+## Credits
+
+* Lea Guerrero -- Presentation: Design, graphics, layout, handlebars, assets, UI
+
+* Abeer Naeem -- Data access: Google API, input capture and verification
+
+* Theo Ward -- Data access: Google API, input capture and verification, troubleshooting
+
+* Will Qualls -- ReadMe, Google Slides presentation, other documentation
+
+## URLs
+
 * Heroku: https://platters-and-pantries.herokuapp.com/
 
 * GitHub repository: https://github.com/Pleasant-Pantry-Professionals/Platters-and-Pantries
