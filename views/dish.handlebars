@@ -1,17 +1,17 @@
 <div class="dish-image">
   <div class="transparent-grey">
-    <header>
-        <nav class="transparent">
+ <header>
+    <nav class="transparent">
       <div class="nav-wrapper">
         <img href="#" class="brand-logo logo" src="./links/Platters and Pantries.png">
         <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li class="waves-effect waves-light"><a href="/login">Login</a></li>
-           <li><a class="white-text logoutBtn">Logout</a></li>
+          <li><a class="white-text logoutBtn">Logout</a></li>
           <li class="waves-effect waves-light"><a href="/">Home</a></li>
           <li class="waves-effect waves-light"><a href="/recipes">Recipes</a></li>
-        <li><a class="white-text" href="/pantry">My Pantry</a></li>
-         <li><a class="white-text" href="/groceryList">Grocery List</a></li>
+          <li><a class="white-text" href="/groceryList">Grocery List</a></li>
+          <li><a class="white-text" href="/pantry">My Pantry</a></li>
           <li class="waves-effect waves-light"><a href="/about">About</a>
           </li>
         </ul>
@@ -20,18 +20,18 @@
 
     <ul class="sidenav black white-text" id="mobile">
       <li><a class="white-text" href="/login">Login</a></li>
-       <li><a class="white-text logoutBtn">Logout</a></li>
+      <li><a class="white-text logoutBtn">Logout</a></li>
       <li><a class="white-text" href="/">Home</a></li>
       <li><a class="white-text" href="/recipes">Recipes</a></li>
-      <li><a class="white-text" href="/pantry">My Pantry</a></li>
       <li><a class="white-text" href="/groceryList">Grocery List</a></li>
+      <li><a class="white-text" href="/pantry">My Pantry</a></li>
       <li><a class="white-text" href="/about">About</a></li>
     </ul>
 
-    </header>
+  </header>
     <main>
       <div class="row">
-        <div class="col l6 s12 margin-top-15pc">
+        <div class="col l6 s12 margin-top-10pc white-text">
           <div class="vl">
             <h2> {{recipes.recipe.label}}</h2>
           </div>
@@ -46,8 +46,8 @@
 
         <div class="col l6 s12 margin-top-15pc">
           <img class="dish-img" src={{recipes.recipe.image}} alt="salad" />
-          <p class="center padding-tb40"> Add Ingredients to shopping list and Save recipe for later</p>
-          <a id="addIngredientBtn" class="waves-effect waves-light btn center-50pc">SAVE AND ADD</a>
+          <p class="center padding-tb20 white-text"> Add Ingredients to shopping list and save recipe for later.</p>
+          <a id="addIngredientBtn" class="waves-effect waves-light btn center-50pc padding-b20">SAVE AND ADD</a>
         </div>
       </div>
   </div>

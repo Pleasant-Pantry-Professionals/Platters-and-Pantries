@@ -9,8 +9,8 @@
           <li><a class="white-text logoutBtn">Logout</a></li>
           <li class="waves-effect waves-light"><a href="/">Home</a></li>
           <li class="waves-effect waves-light"><a href="/recipes">Recipes</a></li>
-          <li><a class="white-text" href="/pantry">My Pantry</a></li>
           <li><a class="white-text" href="/groceryList">Grocery List</a></li>
+          <li><a class="white-text" href="/pantry">My Pantry</a></li>
           <li class="waves-effect waves-light"><a href="/about">About</a>
           </li>
         </ul>
@@ -22,8 +22,8 @@
       <li><a class="white-text logoutBtn">Logout</a></li>
       <li><a class="white-text" href="/">Home</a></li>
       <li><a class="white-text" href="/recipes">Recipes</a></li>
-      <li><a class="white-text" href="/pantry">My Pantry</a></li>
       <li><a class="white-text" href="/groceryList">Grocery List</a></li>
+      <li><a class="white-text" href="/pantry">My Pantry</a></li>
       <li><a class="white-text" href="/about">About</a></li>
     </ul>
 
@@ -54,16 +54,19 @@
           </form>
         </div>
 
-
+        </div>
+        <div class="row">
+          <div class="col l12 s12 ">
         <h2 class="white-text std-padding-left ">Top {{dish}} Recipes</h2>
-        <div class="card-container flex-container col s12 flow-text ">
+        <div class="card-container flex-container flow-text ">
           {{!-- <div id="first_div" class="card-container flex-container  col s12 flow-text"> --}}
             {{#each recipes as |recipesCard|}}
             {{> recipesCard}}
             {{/each}}
           </div>
-        
         </div>
+
+          </div>
   </main>
   {{/if}}
   {{#unless logged_in}}
