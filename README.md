@@ -12,7 +12,6 @@ Your palate and budget will thank you!
 
 **Concept:** An application that lets you stock a personalized pantry, search recipes, and automatically generate a grocery list of missing ingredients.
 
-
 ## User Story
 
 ```
@@ -40,11 +39,23 @@ After you've shopped, prepared, and enjoyed your meal, don't forget to update yo
 
 The following screenshots demonstrate the application's appearance and intended functionality:
 
-![application screenshots](./link)
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.05.19%20AM.png)
 
-![application screenshots](./link)
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.05.44%20AM.png)
 
-![application screenshots](./link)
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.06.14%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.07.19%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.07.35%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.07.53%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.08.03%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.08.16%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.08.26%20AM.png)
 
 
 ## Credits
@@ -69,36 +80,9 @@ Your Pleasant Pantry Professionals team:
 
 ## URLs
 
-* Heroku: ???
-
-## Processes
-
-In addition to HTML and Handlebars, our application used the following processes: 
-
-### CSS
-
-* Materialize
-
-### API
-
-* ???
-
-## Credits
-
-* Lea Guerrero -- Presentation: Design, graphics, layout, handlebars, assets, UI
-
-* Abeer Naeem -- Data access: Google API, input capture and verification
-
-* Theo Ward -- Data access: Google API, input capture and verification, troubleshooting
-
-* Will Qualls -- ReadMe, Google Slides presentation, other documentation
-
-## URLs
-
-* [The URL of the deployed application on Heroku]
+* Heroku: https://platters-and-pantries.herokuapp.com/
 
 * GitHub repository: https://github.com/Pleasant-Pantry-Professionals/Platters-and-Pantries
 
 - - -
 © 2022 Doofenshmirtz Evil Inc. brand. Confidential and Proprietary. All Rights Reserved. Myah.
-
