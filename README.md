@@ -12,7 +12,6 @@ Your palate and budget will thank you!
 
 **Concept:** An application that lets you stock a personalized pantry, search recipes, and automatically generate a grocery list of missing ingredients.
 
-
 ## User Story
 
 ```
@@ -113,4 +112,3 @@ In addition to HTML and Handlebars, our application used the following processes
 
 - - -
 © 2022 Doofenshmirtz Evil Inc. brand. Confidential and Proprietary. All Rights Reserved. Myah.
-
