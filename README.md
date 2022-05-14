@@ -40,11 +40,23 @@ After you've shopped, prepared, and enjoyed your meal, don't forget to update yo
 
 The following screenshots demonstrate the application's appearance and intended functionality:
 
-![application screenshots](./link)
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.05.19%20AM.png)
 
-![application screenshots](./link)
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.05.44%20AM.png)
 
-![application screenshots](./link)
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.06.14%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.07.19%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.07.35%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.07.53%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.08.03%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.08.16%20AM.png)
+
+![application screenshots](./screenshots/Screen%20Shot%202022-05-14%20at%2011.08.26%20AM.png)
 
 
 ## Credits
@@ -95,7 +107,7 @@ In addition to HTML and Handlebars, our application used the following processes
 
 ## URLs
 
-* [The URL of the deployed application on Heroku]
+* Heroku: https://platters-and-pantries.herokuapp.com/
 
 * GitHub repository: https://github.com/Pleasant-Pantry-Professionals/Platters-and-Pantries
 
