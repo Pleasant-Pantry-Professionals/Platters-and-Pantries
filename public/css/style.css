@@ -3,7 +3,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  color: rgb(223, 223, 223);
+  /* color: rgb(223, 223, 223); */
 }
 
 /* =====Fonts and Styles====*/
@@ -74,7 +74,13 @@ main {
   width: 80%;
   margin: auto;
 }
-
+.fs {
+  background-image: url("../links/spoon_fork.png");
+  width: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .logo {
   margin-top: 20px;
   margin-left: 50px;
@@ -87,7 +93,19 @@ main {
 
     }
   }
-
+  .dish-img {
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media only screen and (max-width: 400px) {
+    .dish-img {
+      width: 250px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }}
 .salad {
   width: 350px;
   display: block;
@@ -150,8 +168,8 @@ main {
 
 }
 .dish-image {
-  background-image: url("../links/steak.jpg");
-  min-height: 800px;
+  background-image: url("../links/steak.png");
+  min-height: 1000px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -171,6 +189,10 @@ main {
 .searchbar{
     width: 50%;
 }
+@media only screen and (max-width: 600px){ 
+.searchbar{
+  width: 100%;
+}}
 .center-25pc {
   display: block;
   margin-left: auto;
@@ -232,6 +254,9 @@ main {
 .margin-top-15pc {
   margin-top: 15%;
 }
+.margin-top-10pc {
+  margin-top: 10%;
+}
 .vl {
   border-left: 4px solid #e84830;
   padding-left: 10px;
@@ -267,6 +292,7 @@ main {
   border-radius: 15px;
   color: #e84830;
   border: none;
+  border-bottom: 1px white;
 }
 .collection-header {
   color: rgb(215, 215, 215);
@@ -276,8 +302,13 @@ main {
   background-color: rgba(0, 0, 0, 0.6);
 }
 .collection .collection-item {
+  padding:10px 0px;
   border-bottom: none;
+  line-height: 2rem;
   background-color: rgba(0, 0, 0, 0.6);
+
+}.secondary-content{
+  color:orange;
 }
 
 .flex-container {
@@ -286,7 +317,7 @@ main {
   }
 .transparent-grey{
   background-color: rgba(0, 0, 0, 0.7);
-  height: 800px;
+  height: 1000px;
 }
 .transparent-white{
   background-color: rgba(255, 255, 255, 0.9);
@@ -329,4 +360,11 @@ main {
 }
 .padding-t120{
   padding-top: 120px;
+}
+.padding-tb20{
+  padding-top: 20px;
+  padding-bottom:20px;
+}
+.padding-b20{
+  padding-bottom: 20px;
 }
